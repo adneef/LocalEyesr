@@ -54,11 +54,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
-var GoogleStrategy = require('passport-google-oauth2').Strategy;
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 passport.use(new GoogleStrategy({
-  googleClientID: '893945646364-ti5cfitdk3u8eq3casb74026iokfk2k4.apps.googleusercontent.com',
-  googleClientSecret: '7yqI8C5KHuRYp8_ZMdCbGt1y',
+  clientID: '893945646364-ti5cfitdk3u8eq3casb74026iokfk2k4.apps.googleusercontent.com',
+  clientSecret: '7yqI8C5KHuRYp8_ZMdCbGt1y',
   callbackURL: "http://localhost:3000/auth/google/callback",
   passReqToCallback: true
 }, function(request, accessToken, refreshToken, profile, done) {
@@ -81,6 +81,12 @@ app.get('/auth/google/success', (req, res) => {
 app.get('/auth/google/failure', (req, res) => {
   res.send("zoinks, failure")
 });
+
+// I don't know this truly logs us out, but am following the example, so should be logging out
+app.get('/auth/logout', (req, res) => {
+  req.logout()
+  res.send('successfully logged out')
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
