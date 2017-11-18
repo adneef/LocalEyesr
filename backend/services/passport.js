@@ -1,4 +1,5 @@
 const passport = require('passport')
+const knex = require('../knex')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 
 // take in whatever was passed into `done` inside the GitHubStrategy config
@@ -9,7 +10,6 @@ passport.serializeUser((object, done) => {
 })
 
 passport.deserializeUser((object, done) => {
-  console.log("Deserialize User", object)
   done(null, object)
 })
 
@@ -19,9 +19,38 @@ passport.use(new GoogleStrategy({
   callbackURL: "http://localhost:5000/auth/google/callback",
   passReqToCallback: true
 }, function(request, accessToken, refreshToken, profile, done) {
-  console.log("good things happening passport...", accessToken, refreshToken, profile)
+  let id = profile.id
+  let dbUser
 
-  return done(null, profile)
+  //check if user already exists
+  knex('users')
+  .first()
+  .where('google_id', id)
+  .then((user) => {
+    console.log('User already exists?', user)
+
+    //if user does not exist, insert them into the database
+    if(!user) {
+      knex('users')
+      .returning('google_id')
+      .first()
+      .insert({
+        google_id: id
+      })
+      //then set dbUser equal to that newUser
+      .then((newUser) => {
+        console.log('New User', newUser)
+        dbUser = newUser
+      })
+      //if user does exist, then set dbuser equal to that user
+    } else {
+      dbUser = user
+    }
+  })
+  // console.log("profile:\n\n", typeof profile.id +"\n\n")
+
+
+  return done(null, dbUser)
 }))
 
 module.exports = passport
