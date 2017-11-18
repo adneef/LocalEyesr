@@ -1,13 +1,17 @@
-
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('searches').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
-    });
-};
+      return knex('searches').insert([
+        {
+          id: 1,
+          term: 'blakeshelton',
+          user_id: 1
+        }
+      ])
+    })
+  .then(() => {
+    return knex.raw("SELECT setval('searches_id_seq', (SELECT MAX(id) FROM searches))")
+  })
+}
