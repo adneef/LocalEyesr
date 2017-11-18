@@ -5,18 +5,17 @@ const knex = require('../knex')
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 
-  console.log(req)
-  res.send(`${req.cookie}`)
+  // res.send(`${(req.cookies.session.sig)} ` + ` ${(req.cookies.session)}`)
 
-  // knex('users')
-  // .select('id', 'google_id')
-  // .then((allUsers) => {
-  //   if(!allUsers) {
-  //     res.sendStatus(404)
-  //     return
-  //   }
-  //   res.send(allUsers)
-  // })
+  knex('users')
+  .select('id', 'google_id')
+  .then((allUsers) => {
+    if(!allUsers) {
+      res.sendStatus(404)
+      return
+    }
+    res.send(allUsers)
+  })
 })
 
 // GET a specific user

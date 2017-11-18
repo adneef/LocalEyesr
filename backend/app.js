@@ -14,17 +14,17 @@ const passport = require('./services/passport')
 const app = express()
 
 /* ----------------- CORS fix, should we need it ------------------*/
-
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Methods", "GET,POST,DELETE,PATCH,PUT");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
+/* ------------------ We need them now ---------------------------*/
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,POST,DELETE,PATCH,PUT");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 /* ----------------- end CORS fix ------------------*/
 
-app.use(cookieParser())
+
 app.use(cookieSession({
   name: 'session',
   keys: [`${process.env.COOKIE_KEY}`],
@@ -45,7 +45,7 @@ app.use(passport.session())
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
-
+app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', index)
