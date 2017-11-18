@@ -20,10 +20,11 @@ passport.use(new GoogleStrategy({
   passReqToCallback: true
 }, function(request, accessToken, refreshToken, profile, done) {
   let id = profile.id
-  let dbUser
+  let dbUser = {}
 
   //check if user already exists
   knex('users')
+  .select('google_id')
   .first()
   .where('google_id', id)
   .then((user) => {
@@ -39,18 +40,16 @@ passport.use(new GoogleStrategy({
       })
       //then set dbUser equal to that newUser
       .then((newUser) => {
-        console.log('New User', newUser)
-        dbUser = newUser
+        dbUser['googleId'] = newUser[0]
+        console.log('New User', dbUser)
       })
       //if user does exist, then set dbuser equal to that user
     } else {
-      console.log('User definitely exists:', user)
-      dbUser = user
+      dbUser['googleId'] = user.google_id
+      console.log('User definitely exists,', dbUser)
     }
   })
-  // console.log("profile:\n\n", typeof profile.id +"\n\n")
-
-
+  //I have some concern that all you need to do to bypass this step is to pass an object, but have little way to test at the moment.  If problems are being caused, then we'll deal with them as they come up.
   return done(null, dbUser)
 }))
 

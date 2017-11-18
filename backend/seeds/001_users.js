@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
       return knex('users').insert([
         {
           id: 1,
-          google_id: '105462751991681362552'
+          google_id: '7'
         },
       ])
     })
