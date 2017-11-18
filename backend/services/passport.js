@@ -44,6 +44,7 @@ passport.use(new GoogleStrategy({
       })
       //if user does exist, then set dbuser equal to that user
     } else {
+      console.log('User definitely exists:', user)
       dbUser = user
     }
   })
