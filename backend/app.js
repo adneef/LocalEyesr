@@ -1,24 +1,21 @@
-var express = require('express')
-var path = require('path')
-var favicon = require('serve-favicon')
-var logger = require('morgan')
-var cookieParser = require('cookie-parser')
-var bodyParser = require('body-parser')
-var passport = require('passport')
+const express = require('express')
+const path = require('path')
+const favicon = require('serve-favicon')
+const logger = require('morgan')
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
+const cookieSession = require('cookie-session')
 require('dotenv').config()
 
-var index = require('./routes/index')
-var users = require('./routes/users')
+const index = require('./routes/index')
+const users = require('./routes/users')
+const passport = require('./services/passport')
 
-
-var cookieSession = require('cookie-session')
-var express = require('express')
-
-var app = express()
+const app = express()
 
 app.use(cookieSession({
   name: 'session',
-  keys: ['blahblahblah'],
+  keys: [`${process.env.COOKIE_KEY}`],
 
   // Cookie Options
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
@@ -31,19 +28,6 @@ app.set('view engine', 'jade')
 app.use(passport.initialize())
 app.use(passport.session())
 
-// take in whatever was passed into `done` inside the GitHubStrategy config
-passport.serializeUser((object, done) => {
-  console.log("Serialize User", {token: object})
-
-  // when I call `done` _here_, I am passing in the data to be saved to the session
-  done(null, {token: object.token})
-})
-
-passport.deserializeUser((object, done) => {
-  console.log("Deserialize User", object)
-  done(null, object)
-})
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(logger('dev'))
@@ -55,18 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', index)
 app.use('/users', users)
 
-var GoogleStrategy = require('passport-google-oauth20').Strategy
-
-passport.use(new GoogleStrategy({
-  clientID: `${process.env.GOOGLE_CLIENT_ID}`,
-  clientSecret: `${process.env.GOOGLE_CLIENT_SECRET}`,
-  callbackURL: "http://localhost:5000/auth/google/callback",
-  passReqToCallback: true
-}, function(request, accessToken, refreshToken, profile, done) {
-  console.log("good things happening passport...", accessToken, refreshToken, profile)
-
-  return done(null, profile)
-}))
+/*--------------------------- auth routes -------------------------- */
 
 app.get('/auth/google', passport.authenticate('google', {scope: ['profile']}))
 
@@ -88,9 +61,11 @@ app.get('/auth/logout', (req, res) => {
     res.send('successfully logged out')
 })
 
+/*--------------------------- auth routes end -------------------------- */
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found')
+  const err = new Error('Not Found')
   err.status = 404
   next(err)
 })
