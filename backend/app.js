@@ -24,6 +24,7 @@ const app = express()
 
 /* ----------------- end CORS fix ------------------*/
 
+app.use(cookieParser())
 app.use(cookieSession({
   name: 'session',
   keys: [`${process.env.COOKIE_KEY}`],
@@ -44,7 +45,7 @@ app.use(passport.session())
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
-app.use(cookieParser())
+
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', index)
