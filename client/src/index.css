@@ -1,5 +1,127 @@
-body {
+body, html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  height: 100%;
+}
+
+.container-fluid {
+  padding: 0px;
+  margin: 0px;
+}
+
+.header-nav {
+  background-color: orange;
+  height: 120px;
+  padding-top: 20px;
+}
+
+.borderbox {
+  border: black solid 1px;
+}
+
+.logo-text {
+  color: white;
+}
+
+.logo-sub-text {
+  color: white;
+  font-size: 18px;
+}
+
+.toolbar {
+  background-color: lightgrey;
+  height: 130px;
+}
+
+.search-form {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.search-bar {
+  width: 70%;
+}
+
+#search-button {
+  margin-left: 20px;
+}
+
+.btn-recent {
+  margin-right: 20px;
+}
+
+.data-container {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  height: auto;
+  width: auto;
+}
+
+.footer {
+  background-color: lightgrey;
+  height: 200px;
+  color: white;
+  padding-top: 20px;
+}
+
+.data-image {
+  min-height: 500px;
+  min-width: 500px;
+  max-height: 700px;
+}
+
+.dropdown {
+  padding-bottom: 20px;
+}
+
+.dropdown-toggle {
+  background-color: orange;
+  color: white;
+}
+
+.color-key-block {
+  height: 20px;
+  width: 20px;
+  border: black solid 1px;
+  margin-right: 10px;
+}
+
+.key-group {
+  /*width: auto;*/
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+}
+
+.key-1 {
+  background-color: #98abc5;
+}
+
+.key-2 {
+  background-color: #8a89a6;
+}
+
+.key-3 {
+  background-color: #7b6888;
+}
+
+.key-4 {
+  background-color: #6b486b;
+}
+
+.key-5 {
+  background-color: #a05d56;
+}
+
+.key-6 {
+  background-color: #d0743c;
+}
+
+.key-7 {
+  background-color: #ff8c00;
+}
+
+.key-8 {
+  background-color: #ffbf00;
 }
