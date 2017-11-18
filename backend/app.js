@@ -5,7 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-require('dotenv');
+require('dotenv').config()
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -57,8 +58,8 @@ app.use('/users', users);
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 passport.use(new GoogleStrategy({
-  clientID: process.env.GOOGLE_CLIENT_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  clientID: `${process.env.GOOGLE_CLIENT_ID}`,
+  clientSecret: `${process.env.GOOGLE_CLIENT_SECRET}`,
   callbackURL: "http://localhost:3000/auth/google/callback",
   passReqToCallback: true
 }, function(request, accessToken, refreshToken, profile, done) {
@@ -82,10 +83,9 @@ app.get('/auth/google/failure', (req, res) => {
   res.send("zoinks, failure")
 });
 
-// I don't know this truly logs us out, but am following the example, so should be logging out
 app.get('/auth/logout', (req, res) => {
-  req.logout()
-  res.send('successfully logged out')
+  	req.logOut()
+    res.send('successfully logged out')
 })
 
 // catch 404 and forward to error handler
