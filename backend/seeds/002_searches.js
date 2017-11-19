@@ -8,6 +8,11 @@ exports.seed = function(knex, Promise) {
           id: 1,
           term: 'blakeshelton',
           user_id: 1
+        },
+        {
+        id: 2,
+        term: 'bologna',
+        user_id: 1
         }
       ])
     })

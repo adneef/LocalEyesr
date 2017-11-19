@@ -26,7 +26,7 @@ app.use(function(req, res, next) {
 
 
 app.use(cookieSession({
-  name: 'session',
+  name: 'bologna',
   keys: [`${process.env.COOKIE_KEY}`],
 
   // Cookie Options

@@ -3,14 +3,15 @@ const knex = require('../knex')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 
 // take in whatever was passed into `done` inside the GitHubStrategy config
-passport.serializeUser((object, done) => {
-  console.log("Serialize User", {token: object})
+passport.serializeUser((dbUser, done) => {
+  console.log("Serialize User", {token: dbUser})
   // when I call `done` _here_, I am passing in the data to be saved to the session
-  done(null, {token: object.token})
+  done(null, {token: dbUser})
 })
 
-passport.deserializeUser((object, done) => {
-  done(null, object)
+passport.deserializeUser((dbUser, done) => {
+  console.log("Deserialize User", dbUser)
+  done(null, dbUser)
 })
 
 passport.use(new GoogleStrategy({
@@ -49,8 +50,9 @@ passport.use(new GoogleStrategy({
       console.log('User definitely exists,', dbUser)
     }
   })
-  //I have some concern that all you need to do to bypass this step is to pass an object, but have little way to test at the moment.  If problems are being caused, then we'll deal with them as they come up.
+  // I have some concern that all you need to do to bypass this step is to pass an object, but have little way to test at the moment.  If problems are being caused, then we'll deal with them as they come up.
   return done(null, dbUser)
+  // return done(null, {accessToken, profile})
 }))
 
 module.exports = passport
