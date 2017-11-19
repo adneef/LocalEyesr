@@ -52,17 +52,6 @@ class App extends Component {
     }
   }
 
-  // animate colorado population density map
-  changeMapImage = () => {
-    const mapListLength = 4
-    let nextImageIndex = this.state.mapImageIndex + 1
-    if (this.state.mapImageIndex < 3) {
-      this.setState({ mapImageIndex: nextImageIndex })
-    }
-    else {
-      clearInterval(this.intervalId)
-    }
-  }
 
   // allow drop down on dashboard to display selected data
   updateDataDisplay = (num) => {
