@@ -42,14 +42,6 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    setInterval(this.changeMapImage, 1000)
-  }
-
-  componentWillUnmount(){
-    clearInterval(this.intervalId);
-  }
-
   // animate colorado population density map
   changeMapImage = () => {
     const mapListLength = 4
