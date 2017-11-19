@@ -2,7 +2,11 @@ import React from 'react'
 import Toolbar from './Toolbar'
 import Data from './Data'
 
-const Dashboard = ({ dataDisplay, updateDataDisplay, mapImageIndex }) => {
+const Dashboard = ({
+  dataDisplay,
+  updateDataDisplay,
+  mapImageIndex,
+  topTrendingTweets }) => {
 
   return (
     <div>
@@ -11,6 +15,7 @@ const Dashboard = ({ dataDisplay, updateDataDisplay, mapImageIndex }) => {
         dataDisplay={dataDisplay}
         updateDataDisplay={updateDataDisplay}
         mapImageIndex={mapImageIndex}
+        topTrendingTweet={topTrendingTweets}
       />
     </div>
   )

@@ -4,7 +4,11 @@ import Data2 from './data-components/Data2'
 import $ from 'jquery';
 
 
-const Data = ({ dataDisplay, updateDataDisplay, mapImageIndex }) => {
+const Data = ({
+  dataDisplay,
+  updateDataDisplay,
+  mapImageIndex,
+  topTrendingTweets }) => {
 
   const toggleDropDown = () => {
     $('#dropdown-container').toggleClass('show')
@@ -41,7 +45,7 @@ const Data = ({ dataDisplay, updateDataDisplay, mapImageIndex }) => {
         </div>
         <div>
           {
-            dataDisplay === 2 ? <Data2 /> : null
+            dataDisplay === 2 ? <Data2 topTrendingTweets={topTrendingTweets} /> : null
           }
         </div>
       </div>
