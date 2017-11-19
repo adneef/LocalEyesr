@@ -13,7 +13,6 @@ class App extends Component {
   }
 
   updateDataDisplay = (num) => {
-    console.log('number from app js: ', num);
     this.setState({ dataDisplay: num })
   }
 

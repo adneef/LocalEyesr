@@ -5,12 +5,8 @@ import $ from 'jquery';
 
 
 const Data = ({ dataDisplay, updateDataDisplay }) => {
-  console.log(dataDisplay);
-  console.log(updateDataDisplay);
-
 
   const toggleDropDown = () => {
-    console.log('hello');
     $('#dropdown-container').toggleClass('show')
   }
 
@@ -21,9 +17,6 @@ const Data = ({ dataDisplay, updateDataDisplay }) => {
     if (e.target.id === 'data-2') {
       updateDataDisplay(2)
     }
-    console.log('target clicked');
-    console.log('event: ', e);
-
   }
 
 
@@ -36,9 +29,9 @@ const Data = ({ dataDisplay, updateDataDisplay }) => {
             <span className="caret"></span>
           </button>
           <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a id="data-1"  onClick={changeDisplay}>Colorado Population Density Map</a></li>
-            <li><a id="data-2"  onClick={changeDisplay}>Top Trending Tweets of Colorado</a></li>
-            <li><a href="" onClick={changeDisplay}>Data 3</a></li>
+            <li><a id="data-1" className="dropdown-item" onClick={changeDisplay}>Colorado Population Density Map</a></li>
+            <li><a id="data-2" className="dropdown-item" onClick={changeDisplay}>Top Trending Tweets of Colorado</a></li>
+            <li><a id="data-2" className="dropdown-item" onClick={changeDisplay}>Data 3</a></li>
           </ul>
         </div>
         <div>

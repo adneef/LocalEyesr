@@ -71,13 +71,15 @@ body, html {
   max-height: 700px;
 }
 
-/*.dropdown {
-  padding-bottom: 20px;
-}*/
-
 .dropdown-toggle {
   background-color: orange;
   color: white;
+}
+
+.dropdown-item {
+  color: orange;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .color-key-block {
@@ -88,7 +90,6 @@ body, html {
 }
 
 .key-group {
-  /*width: auto;*/
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 20px;
