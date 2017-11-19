@@ -2,12 +2,15 @@ import React from 'react'
 import Toolbar from './Toolbar'
 import Data from './Data'
 
-const Dashboard = () => {
+const Dashboard = ({ dataDisplay, updateDataDisplay }) => {
 
   return (
     <div>
       <Toolbar />
-      <Data />
+      <Data
+        dataDisplay={dataDisplay}
+        updateDataDisplay={updateDataDisplay}
+      />
     </div>
   )
 

@@ -71,9 +71,9 @@ body, html {
   max-height: 700px;
 }
 
-.dropdown {
+/*.dropdown {
   padding-bottom: 20px;
-}
+}*/
 
 .dropdown-toggle {
   background-color: orange;
