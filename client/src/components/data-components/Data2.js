@@ -1,6 +1,10 @@
 import React from 'react'
+import Data2Chart from './Data2Chart'
+
 
 const Data2 = () => {
+
+  // const d3Chart = require('./Data2Chart/index.html');
 
   return (
     <div className="container">
@@ -8,7 +12,10 @@ const Data2 = () => {
         <h1>Colorado Top 8 Twitter Trends</h1>
         <h4>Sourced from Twitter</h4>
         <div className="d-flex">
-          <img className="data-image" src={require('./images/top-twitter-trends.png')} alt="top twitter trends in colorado" />
+          {/* <img className="data-image" src={require('./images/top-twitter-trends.png')} alt="top twitter trends in colorado" /> */}
+          <div>
+            <Data2Chart />
+          </div>
           <div>
             <div className="key-group row d-flex-inline">
               <div className="color-key-block key-1"></div>

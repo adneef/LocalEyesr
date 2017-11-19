@@ -59,6 +59,13 @@ class App extends Component {
     this.setState({ dataDisplay: num })
   }
 
+  // get top trending Tweets
+  topTrendingTweets = () => {
+    var data = [ 363898, 321223, 262968, 132909, 42576, 20296, 14187, 10164 ]
+    console.log(data);
+  }
+
+
 
   render() {
     return (
@@ -70,6 +77,7 @@ class App extends Component {
               dataDisplay={this.state.dataDisplay}
               updateDataDisplay={this.updateDataDisplay}
               mapImageIndex={this.state.mapImageIndex}
+              topTrendingTweets={this.state.topTrendingTweets}
             /> :
             <LandingPage />
         }
