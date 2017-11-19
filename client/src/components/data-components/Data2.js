@@ -3,16 +3,16 @@ import React from 'react'
 const Data2 = () => {
 
   return (
-    <div className="container borderbox">
+    <div className="container">
       <div className="text-center">
         <h1>Colorado Top 8 Twitter Trends</h1>
         <h4>Sourced from Twitter</h4>
         <div className="d-flex">
-          <img className="data-image borderbox" src={require('./images/top-twitter-trends.png')} alt="top twitter trends in colorado" />
-          <div className="borderbox">
-            <div className="key-group row d-flex-inline borderbox">
-              <div className="color-key-block key-1 borderbox"></div>
-              <div className="borderbox">Incredibles2: 363898</div>
+          <img className="data-image" src={require('./images/top-twitter-trends.png')} alt="top twitter trends in colorado" />
+          <div>
+            <div className="key-group row d-flex-inline">
+              <div className="color-key-block key-1"></div>
+              <div>Incredibles2: 363898</div>
             </div>
             <div className="key-group row d-flex-inline">
               <div className="color-key-block key-2"></div>

@@ -22,7 +22,7 @@ const Data = ({ dataDisplay, updateDataDisplay }) => {
 
   return (
     <div className="container">
-      <div className="data-container borderbox">
+      <div className="data-container">
         <div id="dropdown-container" className="dropdown">
           <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" onClick={toggleDropDown}>
             Choose Your Data:
