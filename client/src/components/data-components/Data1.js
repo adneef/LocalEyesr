@@ -1,7 +1,14 @@
 import React from 'react'
 
 
-const Data1 = () => {
+const Data1 = ({ mapImageIndex }) => {
+
+  const mapImages = [
+    './images/map01.png',
+    './images/map02.png',
+    './images/map03.png',
+    './images/map04.png'
+  ]
 
   return (
     <div className="container">
@@ -11,7 +18,7 @@ const Data1 = () => {
         {/* <div className="data-image-1">
 
         </div> */}
-        <img className="data-image" src={require('./images/co-pop-full.png')} alt="pop map" />
+        <img className="data-image" src={require(`${mapImages[mapImageIndex]}`)} alt="pop map" />
         <img className="" src={require('./images/pop-key.png')} alt="pop map key" />
       </div>
     </div>
