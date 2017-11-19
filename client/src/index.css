@@ -71,6 +71,16 @@ body, html {
   max-height: 700px;
 }
 
+/*.data-image-1 {
+  background-image: url("./components/data-components/images/co-pop-full.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  min-height: 500px;
+  min-width: 500px;
+  max-height: 900px;
+}*/
+
 .dropdown-toggle {
   background-color: orange;
   color: white;
