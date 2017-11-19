@@ -19,12 +19,13 @@ class App extends Component {
 
   async componentDidMount() {
     const res = await fetch(API)
-    // console.log('res.body.id ', res.body.id)
-    if(res) {
-        this.setState({
-          loggedIn: true
-        })
-      }
+    const json = await res.json()
+    console.log(json)
+    // if(res) {
+    //     this.setState({
+    //       loggedIn: true,
+    //     })
+    //   }
       console.log(this.state)
   }
 
