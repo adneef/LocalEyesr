@@ -28,6 +28,8 @@ class App extends Component {
   // stop animating population map
   componentWillUnmount(){
     clearInterval(this.intervalId);
+  }
+
   handleLogin = async () => {
     console.log('handling login');
     return await fetch(`${API}/auth/google`)
@@ -71,7 +73,7 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Header />
+        <Header handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedIn={this.state.loggedIn}/>
         {
           this.state.loggedIn ?
             <Dashboard
@@ -81,14 +83,7 @@ class App extends Component {
             /> :
             <LandingPage />
         }
-        <Header handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedIn={this.state.loggedIn}/>
 
-        {this.state.loggedIn ?
-        <Dashboard
-          dataDisplay={this.state.dataDisplay}
-          updateDataDisplay={this.updateDataDisplay}
-        /> :
-        <LandingPage />}
         <Footer />
       </div>
     );
