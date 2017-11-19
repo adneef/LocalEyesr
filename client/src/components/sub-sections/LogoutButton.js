@@ -1,10 +1,10 @@
 import React from 'react'
 
-const LogoutButton = () => {
+const LogoutButton = ({handleLogout}) => {
 
   return(
     <div>
-      <button className="btn">Logout</button>
+      <button className="btn" onClick={handleLogout}>Log Out</button>
     </div>
   )
 
