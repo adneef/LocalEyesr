@@ -2,9 +2,9 @@ import React from 'react'
 import Data2Chart from './Data2Chart'
 
 
-const Data2 = () => {
+const Data2 = ({ topTrendingTweet }) => {
 
-  // const d3Chart = require('./Data2Chart/index.html');
+  console.log('trending tweets from api call', topTrendingTweets);
 
   return (
     <div className="container">
