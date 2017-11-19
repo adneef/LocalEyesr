@@ -72,14 +72,15 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <Header />
-
-        {this.state.loggedIn ?
-        <Dashboard
-          dataDisplay={this.state.dataDisplay}
-          updateDataDisplay={this.updateDataDisplay}
-          mapImageIndex={this.state.mapImageIndex}
-        /> :
-        <LandingPage />}
+        {
+          this.state.loggedIn ?
+            <Dashboard
+              dataDisplay={this.state.dataDisplay}
+              updateDataDisplay={this.updateDataDisplay}
+              mapImageIndex={this.state.mapImageIndex}
+            /> :
+            <LandingPage />
+        }
         <Footer />
       </div>
     );
