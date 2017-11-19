@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Header from './components/Header'
 import Dashboard from './components/Dashboard'
-// import LandingPage from './components/LandingPage'
+import LandingPage from './components/LandingPage'
 import Footer from './components/Footer'
+const API = `${process.env.REACT_APP_API_URL}`
 
 
 class App extends Component {
@@ -16,19 +17,28 @@ class App extends Component {
     this.setState({ dataDisplay: num })
   }
 
-
+  async componentDidMount() {
+    const res = await fetch(API)
+    // console.log('res.body.id ', res.body.id)
+    if(res) {
+        this.setState({
+          loggedIn: true
+        })
+      }
+      console.log(this.state)
+  }
 
   render() {
     return (
       <div className="container-fluid">
         <Header />
-        {/* if or statement to check it login in state is true */}
-        {/* <LandingPage /> */}
-        {/* OR */}
+
+        {this.state.loggedIn ?
         <Dashboard
           dataDisplay={this.state.dataDisplay}
           updateDataDisplay={this.updateDataDisplay}
-        />
+        /> :
+        <LandingPage />}
         <Footer />
       </div>
     );
