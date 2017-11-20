@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Search = ({ messages, searchList, saveSearch }) => {
+const Search = ({ messages, searchList, saveSearch, recentTerm }) => {
 
   // on change of search field, update list of filtered messages
   // const filteredList = (e) => {

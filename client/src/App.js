@@ -29,7 +29,8 @@ class App extends Component {
       }
   }
 
-  //function to pull out the search term and save it to the db
+  /* function to pull out the search term, save it to the db,
+  and update state with the new search */
   saveSearch = async (search) => {
     const postObj = {
       id: this.state.user,
@@ -53,6 +54,19 @@ class App extends Component {
     })
   }
 
+  /* function to pull the value from a clicked on 'recent' button */
+  pullRecent = async (recent) => {
+    this.setState({
+      recentTerm: recent
+    })
+  }
+
+  /* function to insert a clicked on 'recent' value into the searchbar*/
+  clearCachedRecent = async () => {
+    this.setState({
+      recentTerm: null
+    })
+  }
   // stop animating population map
   componentWillUnmount(){
     clearInterval(this.intervalId);
@@ -90,15 +104,21 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Header handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedIn={this.state.loggedIn}/>
+        <Header
+          handleLogin={this.handleLogin}
+          handleLogout={this.handleLogout}
+          loggedIn={this.state.loggedIn}
+        />
         {
           this.state.loggedIn ?
             <Dashboard
               dataDisplay={this.state.dataDisplay}
               updateDataDisplay={this.updateDataDisplay}
               mapImageIndex={this.state.mapImageIndex}
-              searchTerms={this.state.terms}
+              searchTerms={ this.state.terms }
               saveSearch={ this.saveSearch }
+              pullRecent={ this.pullRecent }
+              recentTerm={ this.state.recentTerm }
             /> :
             <LandingPage />
         }
