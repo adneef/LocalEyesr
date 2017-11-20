@@ -10,7 +10,12 @@ class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { dataDisplay: 1, mapImageIndex: 0, trends: [] }
+    this.state = {
+      dataDisplay: 1,
+      mapImageIndex: 0,
+      trends: [],
+      lastSearch: 'Colorado'
+    }
   }
 
   /* pulls our current user and their saved searches from db -
@@ -23,6 +28,10 @@ class App extends Component {
     console.log('json from trends', json);
     this.setState({ trends: json })
     console.log('state of trends: ', this.state.trends);
+
+    const data = await fetch(`${API}/twitter/related?term=Colorado`)
+    const jsonData = await data.json()
+    this.setState({ searchResults: jsonData })
 
     const res = await fetch(`${API}/users/1`)
     console.log('res from mount: ', res);
@@ -132,9 +141,9 @@ class App extends Component {
           mapImageIndex={this.state.mapImageIndex}
           submitSearch={this.submitSearch}
           searchTerms={this.state.terms}
-          saveSearch={ this.saveSearch }
+          saveSearch={this.saveSearch}
           searchResults={this.state.searchResults}
-          lastSearch={this.state.searchResults}
+          lastSearch={this.state.lastSearch}
         />
         <Footer />
       </div>

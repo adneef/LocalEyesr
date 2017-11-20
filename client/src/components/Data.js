@@ -1,6 +1,7 @@
 import React from 'react'
 import Data1 from './data-components/Data1'
 import Data2 from './data-components/Data2'
+import SearchData from './data-components/SearchData'
 import $ from 'jquery';
 
 
@@ -22,6 +23,9 @@ const Data = ({ dataDisplay,
     if (e.target.id === 'data-2') {
       updateDataDisplay(2)
     }
+    if (e.target.id === 'data-3') {
+      updateDataDisplay(3)
+    }
   }
 
 
@@ -36,7 +40,7 @@ const Data = ({ dataDisplay,
           <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
             <li><a id="data-1" className="dropdown-item" onClick={changeDisplay}>Colorado Population Density Map</a></li>
             <li><a id="data-2" className="dropdown-item" onClick={changeDisplay}>Top Trending Tweets of Colorado</a></li>
-            <li><a id="data-2" className="dropdown-item" onClick={changeDisplay}>Data 3</a></li>
+            <li><a id="data-3" className="dropdown-item" onClick={changeDisplay}>Related Twitter HashTags</a></li>
           </ul>
         </div>
         <div>
@@ -47,6 +51,11 @@ const Data = ({ dataDisplay,
         <div>
           {
             dataDisplay === 2 ? <Data2 trends={trends} /> : null
+          }
+        </div>
+        <div>
+          {
+            dataDisplay === 3 ? <SearchData searchResults={searchResults} lastSearch={lastSearch} /> : null
           }
         </div>
       </div>
