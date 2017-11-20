@@ -18,8 +18,9 @@ const Dashboard = ({
     <div>
       <Toolbar
         submitSearch={submitSearch}
-        searchTerms={ searchTerms }
-        saveSearch={ saveSearch }
+        searchTerms={searchTerms}
+        saveSearch={saveSearch}
+        updateDataDisplay={updateDataDisplay}
       />
       <Data
         dataDisplay={dataDisplay}

@@ -116,6 +116,7 @@ class App extends Component {
     const jsonData = await data.json()
     console.log('jsonData ', jsonData);
     this.setState({searchResults: jsonData, lastSearch: value})
+
   }
 
 

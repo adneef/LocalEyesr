@@ -1,13 +1,20 @@
 import React from 'react'
 
 
-const Search = ({ messages, searchList, submitSearch, saveSearch }) => {
+const Search = ({
+  messages,
+  searchList,
+  submitSearch,
+  saveSearch,
+  updateDataDisplay 
+}) => {
 
   const searchTerm = (e) => {
     e.preventDefault()
     let search = e.target.firstChild.value
     console.log('search term from searchbar: ', search);
     submitSearch(search)
+    updateDataDisplay(3)
     // saveSearch(search)
   }
 
