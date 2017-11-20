@@ -3,6 +3,7 @@ import Data1 from './data-components/Data1'
 import Data2 from './data-components/Data2'
 import SearchData from './data-components/SearchData'
 import $ from 'jquery';
+import Barchart from './data-components/Barchart'
 
 
 const Data = ({ dataDisplay,
@@ -27,6 +28,9 @@ const Data = ({ dataDisplay,
     if (e.target.id === 'data-3') {
       updateDataDisplay(3)
     }
+    if (e.target.id === 'data-4') {
+      updateDataDisplay(4)
+    }
   }
 
 
@@ -42,6 +46,7 @@ const Data = ({ dataDisplay,
             <li><a id="data-1" className="dropdown-item" onClick={changeDisplay}>Colorado Population Density Map</a></li>
             <li><a id="data-2" className="dropdown-item" onClick={changeDisplay}>Top Trending Tweets of Colorado</a></li>
             <li><a id="data-3" className="dropdown-item" onClick={changeDisplay}>Related Twitter HashTags</a></li>
+            <li><a id="data-4" className="dropdown-item" onClick={changeDisplay}>Related Twitter Test</a></li>
           </ul>
         </div>
         <div>
@@ -57,6 +62,11 @@ const Data = ({ dataDisplay,
         <div>
           {
             dataDisplay === 3 ? <SearchData searchResults={searchResults} lastSearch={lastSearch} /> : null
+          }
+        </div>
+        <div>
+          {
+            dataDisplay === 4 ? <Barchart data={searchResults} lastSearch={lastSearch} /> : null
           }
         </div>
       </div>

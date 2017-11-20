@@ -18,7 +18,7 @@ class App extends Component {
       dataDisplay: 1,
       mapImageIndex: 0,
       trends: [],
-      lastSearch: 'Colorado'
+      // lastSearch: 'Colorado'
     }
   }
 
@@ -116,7 +116,6 @@ class App extends Component {
     const jsonData = await data.json()
     console.log('jsonData ', jsonData);
     this.setState({searchResults: jsonData, lastSearch: value})
-
   }
 
 
