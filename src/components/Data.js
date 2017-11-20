@@ -11,7 +11,8 @@ const Data = ({ dataDisplay,
   mapImageIndex,
   searchResults,
   lastSearch,
-}) => {
+  renderPieChart
+    }) => {
 
   const toggleDropDown = () => {
     $('#dropdown-container').toggleClass('show')
@@ -51,7 +52,7 @@ const Data = ({ dataDisplay,
         </div>
         <div>
           {
-            dataDisplay === 2 ? <Data2 trends={trends} /> : null
+            dataDisplay === 2 ? <Data2 trends={trends} renderPieChart={renderPieChart} /> : null
           }
         </div>
         <div>

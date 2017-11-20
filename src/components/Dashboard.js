@@ -11,8 +11,9 @@ const Dashboard = ({
   searchTerms,
   saveSearch,
   searchResults,
-  lastSearch
-}) => {
+  lastSearch,
+  renderPieChart
+    }) => {
 
   return (
     <div>
@@ -29,6 +30,7 @@ const Dashboard = ({
         mapImageIndex={mapImageIndex}
         searchResults={searchResults}
         lastSearch={lastSearch}
+        renderPieChart={renderPieChart}
       />
     </div>
   )

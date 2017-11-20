@@ -1,7 +1,7 @@
 import React from 'react'
 import Data2Chart from './Data2Chart'
 
-const Data2 = ({ trends }) => {
+const Data2 = ({ trends, renderPieChart }) => {
   console.log('trends from data 2: ', trends);
 
   return (
@@ -10,7 +10,7 @@ const Data2 = ({ trends }) => {
         <h1>Colorado Top 8 Twitter Trends</h1>
         <h4>Sourced from Twitter</h4>
         <div className="d-flex">
-          <Data2Chart />
+          <Data2Chart renderPieChart={renderPieChart} />
           {/* <img className="data-image" src={require('./images/top-twitter-trends.png')} alt="top twitter trends in colorado" /> */}
           <div>
             <div className="key-group row d-flex-inline">

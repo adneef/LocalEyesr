@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const SearchData = ({ searchResults, lastSearch, }) => {
+const SearchData = ({ searchResults, lastSearch }) => {
   console.log(lastSearch);
   console.log(searchResults);
 
