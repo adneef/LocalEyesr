@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Search = ({ messages, searchList }) => {
+const Search = ({ messages, searchList, saveSearch }) => {
 
   // on change of search field, update list of filtered messages
   // const filteredList = (e) => {
@@ -11,12 +11,19 @@ const Search = ({ messages, searchList }) => {
   //   searchList(updatedList)
   // }
 
+  const saveIt = (e) => {
+    e.preventDefault()
+    let term = e.target["search-field"].value
+    saveSearch(term)
+  }
+
   return (
     <div>
-      <form className="d-flex search-form">
-        <input className="form-control search-bar" placeholder="Search"/>
+      <form onSubmit= { saveIt } className="d-flex search-form">
+        <input id="search-field" className="form-control search-bar" placeholder="Search"/>
         {/* <input className="form-control" placeholder="Search" onChange={filteredList}/> */}
-        <button id="search-button" className="btn">Search</button>
+        <input type ="submit" id="search-button" className="btn" value="Search"/>
+        {/* <button id="search-button" className="btn">Search</button> */}
       </form>
     </div>
   )
