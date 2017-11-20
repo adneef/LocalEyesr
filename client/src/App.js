@@ -62,6 +62,15 @@ class App extends Component {
     this.setState({ dataDisplay: num })
   }
 
+  // search form connection to mapImages
+  submitSearch = async (value) => {
+    console.log('value being searched ', value)
+    const data = await fetch(`${API}/twitter/related?term=${value}`)
+    const jsonData = await data.json()
+    console.log('jsonData ', jsonData);
+    this.setState({searchResults: jsonData, lastSearch: value})
+  }
+
 
   render() {
     return (
@@ -82,6 +91,7 @@ class App extends Component {
           trends={this.state.trends}
           updateDataDisplay={this.updateDataDisplay}
           mapImageIndex={this.state.mapImageIndex}
+          submitSearch={this.submitSearch}
         />
         <Footer />
       </div>

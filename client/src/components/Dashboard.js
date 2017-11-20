@@ -2,11 +2,17 @@ import React from 'react'
 import Toolbar from './Toolbar'
 import Data from './Data'
 
-const Dashboard = ({ dataDisplay, updateDataDisplay, mapImageIndex }) => {
+const Dashboard = ({
+  dataDisplay,
+  updateDataDisplay,
+  mapImageIndex,
+  submitSearch }) => {
 
   return (
     <div>
-      <Toolbar />
+      <Toolbar
+        submitSearch={submitSearch}
+      />
       <Data
         dataDisplay={dataDisplay}
         updateDataDisplay={updateDataDisplay}
