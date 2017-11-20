@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Data2 = () => {
+const Data2 = ({ trends }) => {
+  console.log('trends from data 2: ', trends);
 
   return (
     <div className="container">

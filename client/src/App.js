@@ -18,23 +18,26 @@ class App extends Component {
   that says what user is signed in.*/
   async componentDidMount() {
     setInterval(this.changeMapImage, 1000)
-
-    const res = await fetch(`${API}/users/1`)
-    const searches = await res.json()
-    const terms = searches.map(search => search.term)
-    if(searches) {
-        this.setState({
-          loggedIn: true,
-          user: searches[0].id,
-          terms: terms
-        })
-      }
-    console.log('state', this.state)
     const response = await fetch(`${API}/twitter/trends`)
     const json = await response.json()
     console.log('json from trends', json);
     this.setState({ trends: json })
     console.log('state of trends: ', this.state.trends);
+
+    const res = await fetch(`${API}/users/1`)
+    console.log('res from mount: ', res);
+    const searches = await res.json()
+    const terms = searches.map(search => search.term)
+    console.log('is something broken?');
+    if(searches) {
+      this.setState({
+        loggedIn: true,
+        user: searches[0].id,
+        terms: terms,
+        trends: json
+      })
+    }
+
   }
 
   //function to pull out the search term and save it to the db
@@ -114,8 +117,11 @@ class App extends Component {
               trends={this.state.trends}
               updateDataDisplay={this.updateDataDisplay}
               mapImageIndex={this.state.mapImageIndex}
+              submitSearch={this.submitSearch}
               searchTerms={this.state.terms}
               saveSearch={ this.saveSearch }
+              searchResults={this.state.searchResults}
+              lastSearch={this.state.searchResults}
             /> :
             <LandingPage />
         } */}
@@ -127,6 +133,8 @@ class App extends Component {
           submitSearch={this.submitSearch}
           searchTerms={this.state.terms}
           saveSearch={ this.saveSearch }
+          searchResults={this.state.searchResults}
+          lastSearch={this.state.searchResults}
         />
         <Footer />
       </div>

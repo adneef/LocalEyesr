@@ -4,11 +4,14 @@ import Data from './Data'
 
 const Dashboard = ({
   dataDisplay,
+  trends,
   updateDataDisplay,
   mapImageIndex,
   submitSearch,
   searchTerms,
-  saveSearch }) => {
+  saveSearch,
+  searchResults,
+  lastSearch }) => {
 
   return (
     <div>
@@ -19,8 +22,11 @@ const Dashboard = ({
       />
       <Data
         dataDisplay={dataDisplay}
+        trends={trends}
         updateDataDisplay={updateDataDisplay}
         mapImageIndex={mapImageIndex}
+        searchResults={searchResults}
+        lastSearch={lastSearch}
       />
     </div>
   )
