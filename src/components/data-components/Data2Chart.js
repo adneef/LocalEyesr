@@ -4,21 +4,22 @@ const d3 = require('d3');
 // import { max } from 'd3-array'
 // import { select } from 'd3-selection'
 
-class PieChart extends Component {
+const Data2Chart = () => {
 
-   constructor(props){
-      super(props)
-      this.renderPieChart = this.renderPieChart.bind(this)
-   }
-   componentDidMount() {
-      this.renderPieChart()
-   }
-   componentDidUpdate() {
-      this.renderPieChart()
-   }
+   // constructor(props){
+   //    super(props)
+   //    this.renderPieChart = this.renderPieChart.bind(this)
+   // }
+   // componentDidMount() {
+   //    this.renderPieChart()
+   //
+   // }
+   // componentDidUpdate() {
+   //    this.renderPieChart()
+   // }
 
-   renderPieChart = () => {
-     var dataset = [
+
+     const dataset = [
        { label: 'Abulia', count: 10 },
        { label: 'Betelgeuse', count: 20 },
        { label: 'Cantaloupe', count: 30 },
@@ -55,14 +56,22 @@ class PieChart extends Component {
        .attr('fill', function(d, i) {
          return color(d.data.label);
        });
-   }
 
 
-render() {
-      return <svg ref={node => this.node = node}
-      width={500} height={500}>
-      </svg>
-   }
+
+      return (
+        <div>
+          <g transform={translate}>
+            {pie.map((d, i) => (
+                <LabeledArc key={`arc-${i}`}
+                            data={dataset}
+                            innerRadius={innerRadius}
+                            outerRadius={outerRadius}
+                            color={colors(i)} />))}
+        </g>
+        </div>
+      )
+
 }
 
-export default PieChart
+export default Data2Chart
