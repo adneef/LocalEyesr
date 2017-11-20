@@ -3,6 +3,10 @@ import Header from './components/Header'
 import Dashboard from './components/Dashboard'
 import LandingPage from './components/LandingPage'
 import Footer from './components/Footer'
+import { scaleLinear } from 'd3-scale';
+import { max } from 'd3-array';
+import { select } from 'd3-selection';
+import * as d3 from "d3";
 const API = `${process.env.REACT_APP_API_URL}`
 
 

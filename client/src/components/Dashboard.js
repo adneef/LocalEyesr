@@ -11,7 +11,8 @@ const Dashboard = ({
   searchTerms,
   saveSearch,
   searchResults,
-  lastSearch }) => {
+  lastSearch
+}) => {
 
   return (
     <div>

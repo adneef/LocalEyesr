@@ -10,7 +10,8 @@ const Data = ({ dataDisplay,
   updateDataDisplay,
   mapImageIndex,
   searchResults,
-  lastSearch }) => {
+  lastSearch,
+}) => {
 
   const toggleDropDown = () => {
     $('#dropdown-container').toggleClass('show')
