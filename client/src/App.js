@@ -29,9 +29,7 @@ class App extends Component {
     setInterval(this.changeMapImage, 1000)
     const response = await fetch(`${API}/twitter/trends`)
     const json = await response.json()
-    console.log('json from trends', json);
     this.setState({ trends: json })
-    console.log('state of trends: ', this.state.trends);
 
     const data = await fetch(`${API}/twitter/related?term=Colorado`)
     const jsonData = await data.json()
@@ -111,12 +109,9 @@ class App extends Component {
 
   // search form connection to mapImages
   submitSearch = async (value) => {
-    console.log('value being searched ', value)
     const data = await fetch(`${API}/twitter/related?term=${value}`)
     const jsonData = await data.json()
-    console.log('jsonData ', jsonData);
     this.setState({searchResults: jsonData, lastSearch: value})
-
   }
 
 
