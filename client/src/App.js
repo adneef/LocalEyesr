@@ -10,7 +10,7 @@ class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { dataDisplay: 1, mapImageIndex: 0 }
+    this.state = { dataDisplay: 1, mapImageIndex: 0, trends: [] }
   }
 
   async componentDidMount() {
@@ -22,7 +22,12 @@ class App extends Component {
         })
         setInterval(this.changeMapImage, 1000)
       }
-      console.log(this.state)
+    console.log('state', this.state)
+    const response = await fetch(`${API}/twitter/trends`)
+    const json = await response.json()
+    console.log('json from trends', json);
+    this.setState({ trends: json })
+    console.log('state of trends: ', this.state.trends);
   }
 
   // stop animating population map
@@ -52,7 +57,6 @@ class App extends Component {
     }
   }
 
-
   // allow drop down on dashboard to display selected data
   updateDataDisplay = (num) => {
     this.setState({ dataDisplay: num })
@@ -63,16 +67,22 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <Header handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedIn={this.state.loggedIn}/>
-        {
+        {/* {
           this.state.loggedIn ?
             <Dashboard
               dataDisplay={this.state.dataDisplay}
+              trends={this.state.trends}
               updateDataDisplay={this.updateDataDisplay}
               mapImageIndex={this.state.mapImageIndex}
             /> :
             <LandingPage />
-        }
-
+        } */}
+        <Dashboard
+          dataDisplay={this.state.dataDisplay}
+          trends={this.state.trends}
+          updateDataDisplay={this.updateDataDisplay}
+          mapImageIndex={this.state.mapImageIndex}
+        />
         <Footer />
       </div>
     );
