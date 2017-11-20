@@ -29,18 +29,29 @@ class App extends Component {
       }
   }
 
-  // async componentDidMount() {
-  //   renderSaves()
-  // }
-
-  // renderSaves = async () => {
-  //   const res = await fetch(`${API}/1`)
-  //   const json = await res.json()
-  //   this.setState({
-  //     saves: json
-  //   })
-  //   console.log(this.state)
-  // }
+  //function to pull out the search term and save it to the db
+  saveSearch = async (search) => {
+    const postObj = {
+      id: this.state.user,
+      term: search
+    }
+    const res = await fetch(`${API}/users`, {
+      method: 'POST',
+      body: JSON.stringify(postObj),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+    })
+    const json = await res.json()
+    console.log(json)
+    this.setState({
+      terms: [
+        ...this.state.terms,
+        json
+      ]
+    })
+  }
 
   // stop animating population map
   componentWillUnmount(){
@@ -87,6 +98,7 @@ class App extends Component {
               updateDataDisplay={this.updateDataDisplay}
               mapImageIndex={this.state.mapImageIndex}
               searchTerms={this.state.terms}
+              saveSearch={ this.saveSearch }
             /> :
             <LandingPage />
         }
