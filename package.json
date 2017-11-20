@@ -11,6 +11,7 @@
     "d3-selection": "^1.1.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
+    "popper.js": "^1.12.9",
     "react": "^16.1.1",
     "react-bubble-chart": "^0.4.0",
     "react-dom": "^16.1.1",
