@@ -1,5 +1,5 @@
 import React from 'react'
-import {PieChart} from 'react-easy-chart';
+import Data2Chart from './Data2Chart'
 
 
 const Data2 = ({ trends }) => {
@@ -11,24 +11,9 @@ const Data2 = ({ trends }) => {
         <h1>Colorado Top 8 Twitter Trends</h1>
         <h4>Sourced from Twitter</h4>
         <div className="d-flex">
-          <PieChart
-            labels
-            styles={{
-              '.chart_lines': {
-                strokeWidth: 0
-              },
-              '.chart_text': {
-                fontFamily: 'serif',
-                fontSize: '1.25em',
-                fill: '#333'
-              }
-            }}
-            data={[
-              {key: 'A', value: 100, color: '#aaac84'},
-              {key: 'B', value: 200, color: '#dce7c5'},
-              {key: 'C', value: 50, color: '#e3a51a'}
-            ]}
-            />
+          <Data2Chart
+            props={this.props}
+          />
           {/* <img className="data-image" src={require('./images/top-twitter-trends.png')} alt="top twitter trends in colorado" /> */}
           <div>
             <div className="key-group row d-flex-inline">
