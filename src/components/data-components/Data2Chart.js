@@ -8,7 +8,9 @@ class Data2Chart extends Component {
   render() {
     return(
       <div>
-        <button className="btn">Logout</button>
+        <svg width="960" height="500">
+
+        </svg>
       </div>
     )
   }

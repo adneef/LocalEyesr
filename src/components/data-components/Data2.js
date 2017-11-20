@@ -1,4 +1,5 @@
 import React from 'react'
+import Data2Chart from './Data2Chart'
 
 const Data2 = ({ trends }) => {
   console.log('trends from data 2: ', trends);
@@ -9,7 +10,8 @@ const Data2 = ({ trends }) => {
         <h1>Colorado Top 8 Twitter Trends</h1>
         <h4>Sourced from Twitter</h4>
         <div className="d-flex">
-          <img className="data-image" src={require('./images/top-twitter-trends.png')} alt="top twitter trends in colorado" />
+          <Data2Chart />
+          {/* <img className="data-image" src={require('./images/top-twitter-trends.png')} alt="top twitter trends in colorado" /> */}
           <div>
             <div className="key-group row d-flex-inline">
               <div className="color-key-block key-1"></div>
