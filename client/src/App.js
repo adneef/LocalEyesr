@@ -17,6 +17,8 @@ class App extends Component {
   currently hard-coded, just needs a return from our backend
   that says what user is signed in.*/
   async componentDidMount() {
+    setInterval(this.changeMapImage, 1000)
+
     const res = await fetch(`${API}/users/1`)
     const searches = await res.json()
     const terms = searches.map(search => search.term)
@@ -57,9 +59,10 @@ class App extends Component {
         json
       ]
     })
+  }
 
   // stop animating population map
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this.intervalId);
   }
 
@@ -122,6 +125,8 @@ class App extends Component {
           updateDataDisplay={this.updateDataDisplay}
           mapImageIndex={this.state.mapImageIndex}
           submitSearch={this.submitSearch}
+          searchTerms={this.state.terms}
+          saveSearch={ this.saveSearch }
         />
         <Footer />
       </div>
