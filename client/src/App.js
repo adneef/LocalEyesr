@@ -52,7 +52,6 @@ class App extends Component {
         trends: json
       })
     }
-
   }
 
   /* function to pull out the search term, save it to the db,
@@ -85,6 +84,7 @@ class App extends Component {
     this.setState({
       recentTerm: recent
     })
+  }
 
   // stop animating population map
   componentWillUnmount() {
@@ -173,6 +173,7 @@ class App extends Component {
           pullRecent={ this.pullRecent }
           recentTerm={ this.state.recentTerm }
         />
+        */}
         <Footer />
       </div>
     );
