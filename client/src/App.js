@@ -30,16 +30,14 @@ class App extends Component {
     clearInterval(this.intervalId);
   }
 
-  // animate colorado population density map
-  changeMapImage = () => {
-    const mapListLength = 4
-    let nextImageIndex = this.state.mapImageIndex + 1
-    if (this.state.mapImageIndex < 3) {
-      this.setState({ mapImageIndex: nextImageIndex })
-    }
-    else {
-      clearInterval(this.intervalId)
-    }
+  handleLogin = async () => {
+    console.log('handling login');
+    return await fetch(`${API}/auth/google`)
+  }
+
+  handleLogout = async () => {
+    console.log('handling logout');
+    return await fetch(`${API}/auth/logout`)
   }
 
   // animate colorado population density map
@@ -53,6 +51,7 @@ class App extends Component {
       clearInterval(this.intervalId)
     }
   }
+
 
   // allow drop down on dashboard to display selected data
   updateDataDisplay = (num) => {
@@ -63,7 +62,7 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Header />
+        <Header handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedIn={this.state.loggedIn}/>
         {
           this.state.loggedIn ?
             <Dashboard
@@ -73,6 +72,7 @@ class App extends Component {
             /> :
             <LandingPage />
         }
+
         <Footer />
       </div>
     );
