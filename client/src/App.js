@@ -10,7 +10,7 @@ class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { dataDisplay: 1, mapImageIndex: 0 }
+    this.state = { dataDisplay: 1, mapImageIndex: 0, trends: [] }
   }
 
   /* pulls our current user and their saved searches from db -
@@ -27,6 +27,12 @@ class App extends Component {
           terms: terms
         })
       }
+    console.log('state', this.state)
+    const response = await fetch(`${API}/twitter/trends`)
+    const json = await response.json()
+    console.log('json from trends', json);
+    this.setState({ trends: json })
+    console.log('state of trends: ', this.state.trends);
   }
 
   /* function to pull out the search term, save it to the db,
@@ -52,7 +58,6 @@ class App extends Component {
         json
       ]
     })
-  }
 
   /* function to pull the value from a clicked on 'recent' button */
   pullRecent = async (recent) => {
@@ -94,10 +99,18 @@ class App extends Component {
     }
   }
 
-
   // allow drop down on dashboard to display selected data
   updateDataDisplay = (num) => {
     this.setState({ dataDisplay: num })
+  }
+
+  // search form connection to mapImages
+  submitSearch = async (value) => {
+    console.log('value being searched ', value)
+    const data = await fetch(`${API}/twitter/related?term=${value}`)
+    const jsonData = await data.json()
+    console.log('jsonData ', jsonData);
+    this.setState({searchResults: jsonData, lastSearch: value})
   }
 
 
@@ -113,6 +126,7 @@ class App extends Component {
           this.state.loggedIn ?
             <Dashboard
               dataDisplay={this.state.dataDisplay}
+              trends={this.state.trends}
               updateDataDisplay={this.updateDataDisplay}
               mapImageIndex={this.state.mapImageIndex}
               searchTerms={ this.state.terms }
@@ -121,8 +135,14 @@ class App extends Component {
               recentTerm={ this.state.recentTerm }
             /> :
             <LandingPage />
-        }
-
+        } */}
+        <Dashboard
+          dataDisplay={this.state.dataDisplay}
+          trends={this.state.trends}
+          updateDataDisplay={this.updateDataDisplay}
+          mapImageIndex={this.state.mapImageIndex}
+          submitSearch={this.submitSearch}
+        />
         <Footer />
       </div>
     );

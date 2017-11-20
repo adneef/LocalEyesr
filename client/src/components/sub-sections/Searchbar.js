@@ -1,29 +1,27 @@
 import React from 'react'
 
-const Search = ({ messages, searchList, saveSearch, recentTerm }) => {
+const Search = ({ messages, searchList, saveSearch, recentTerm, submitSearch }) => {
+>>>>>>> c7b6c366954e96e3952317875d2f34bed2d9732b
 
-  // on change of search field, update list of filtered messages
-  // const filteredList = (e) => {
-  //   let search = e.target.value
-  //   let updatedList = messages.filter(item => {
-  //     return item.name.match(new RegExp(search, 'ig')) || item.message.match(new RegExp(search, 'ig'))
-  //   })
-  //   searchList(updatedList)
-  // }
-
-  const saveIt = (e) => {
+  const searchTerm = (e) => {
     e.preventDefault()
-    let term = e.target["search-field"].value
-    saveSearch(term)
+    let search = e.target.firstChild.value
+    console.log('search term from searchbar: ', search);
+    // saveSearch(search)
+    submitSearch(search)
   }
+
+  // const saveIt = (e) => {
+  //   e.preventDefault()
+  //   let term = e.target["search-field"].value
+  //
+  // }
 
   return (
     <div>
-      <form onSubmit= { saveIt } className="d-flex search-form">
-        <input id="search-field" className="form-control search-bar" placeholder="Search"/>
-        {/* <input className="form-control" placeholder="Search" onChange={filteredList}/> */}
-        <input type ="submit" id="search-button" className="btn" value="Search"/>
-        {/* <button id="search-button" className="btn">Search</button> */}
+      <form className="d-flex search-form" onSubmit={searchTerm}>
+        <input id="search-input" className="form-control search-bar" placeholder="Search"/>
+        <button id="search-button" className="btn">Search</button>
       </form>
     </div>
   )

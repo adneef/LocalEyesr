@@ -2,11 +2,20 @@ import React from 'react'
 import Toolbar from './Toolbar'
 import Data from './Data'
 
-const Dashboard = ({ dataDisplay, updateDataDisplay, mapImageIndex, searchTerms, saveSearch, pullRecent, recentTerm }) => {
+const Dashboard = ({
+  dataDisplay,
+  updateDataDisplay,
+  mapImageIndex,
+  submitSearch,
+  searchTerms,
+  saveSearch,
+  pullRecent,
+  recentTerm }) => {
 
   return (
     <div>
       <Toolbar
+        submitSearch={submitSearch}
         searchTerms={ searchTerms }
         saveSearch={ saveSearch }
         pullRecent={ pullRecent }
