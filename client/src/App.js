@@ -17,17 +17,30 @@ class App extends Component {
     this.setState({ dataDisplay: num })
   }
 
-  async componentDidMount() {
-    const res = await fetch(API)
-    const json = await res.json()
-    console.log(json)
-    // if(res) {
-    //     this.setState({
-    //       loggedIn: true,
-    //     })
-    //   }
-      console.log(this.state)
-  }
+  // async componentDidMount() {
+  //   const res = await fetch(`${API}`)
+  //   const json = await res.json()
+  //   console.log(json)
+  //   // if(res) {
+  //   //     this.setState({
+  //   //       loggedIn: true,
+  //   //     })
+  //   //   }
+  //     console.log(this.state)
+  // }
+
+  // async componentDidMount() {
+  //   renderSaves()
+  // }
+
+  // renderSaves = async () => {
+  //   const res = await fetch(`${API}/1`)
+  //   const json = await res.json()
+  //   this.setState({
+  //     saves: json
+  //   })
+  //   console.log(this.state)
+  // }
 
   render() {
     return (
