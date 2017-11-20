@@ -3,7 +3,7 @@ import LoginButton from './sub-sections/LoginButton'
 import LogoutButton from './sub-sections/LogoutButton'
 import DashboardButton from './sub-sections/DashboardButton'
 
-const Header = () => {
+const Header = ({loggedIn, handleLogin, handleLogout}) => {
 
   return (
     <div className="container-fluid header-nav">
@@ -13,9 +13,8 @@ const Header = () => {
           <h5 className="logo-sub-text">Discover Colorado with Data Visualization</h5>
         </div>
         <div className="header-right row align-items-center">
-          {/* create if or statement */}
-          {/* <LoginButton /> */}
-          <LogoutButton />
+          {loggedIn ?   <LogoutButton handleLogout={handleLogout}/> : <LoginButton handleLogin={handleLogin}/>}
+
           {/* <DashboardButton /> */}
         </div>
       </div>

@@ -1,10 +1,12 @@
 import React from 'react'
 
-const LoginButton = () => {
+const LoginButton = ({handleLogin}) => {
+
+
 
   return(
     <div>
-      <button className="btn">Login</button>
+      <button className="btn" onClick={handleLogin}>Login</button>
     </div>
   )
 
