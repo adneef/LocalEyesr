@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Data2 = () => {
+const Data2 = ({ trends }) => {
+  console.log('trends from data 2: ', trends);
 
   return (
     <div className="container">
@@ -12,35 +13,35 @@ const Data2 = () => {
           <div>
             <div className="key-group row d-flex-inline">
               <div className="color-key-block key-1"></div>
-              <div>Incredibles2: 363898</div>
+              <div><strong>{trends[0].name}: {trends[0].tweets}</strong></div>
             </div>
             <div className="key-group row d-flex-inline">
               <div className="color-key-block key-2"></div>
-              <div>Madrid: 321223</div>
+              <div><strong>{trends[1].name}: {trends[1].tweets}</strong></div>
             </div>
             <div className="key-group row d-flex-inline">
               <div className="color-key-block key-3"></div>
-              <div>Malcolm Young: 262968</div>
+              <div><strong>{trends[2].name}: {trends[2].tweets}</strong></div>
             </div>
             <div className="key-group row d-flex-inline">
               <div className="color-key-block key-4"></div>
-              <div>2017In4Words: 132909</div>
+              <div><strong>{trends[3].name}: {trends[3].tweets}</strong></div>
             </div>
             <div className="key-group row d-flex-inline">
               <div className="color-key-block key-5"></div>
-              <div>Benzema: 42576</div>
+              <div><strong>{trends[4].name}: {trends[4].tweets}</strong></div>
             </div>
             <div className="key-group row d-flex-inline">
               <div className="color-key-block key-6"></div>
-              <div>HappyBirthdayMickey: 20296</div>
+              <div><strong>{trends[5].name}: {trends[5].tweets}</strong></div>
             </div>
             <div className="key-group row d-flex-inline">
               <div className="color-key-block key-7"></div>
-              <div>Mercer: 14187</div>
+              <div><strong>{trends[6].name}: {trends[6].tweets}</strong></div>
             </div>
             <div className="key-group row d-flex-inline">
               <div className="color-key-block key-8"></div>
-              <div>NCTE17: 10164</div>
+              <div><strong>{trends[7].name}: {trends[7].tweets}</strong></div>
             </div>
           </div>
         </div>

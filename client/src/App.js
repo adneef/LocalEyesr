@@ -3,40 +3,56 @@ import Header from './components/Header'
 import Dashboard from './components/Dashboard'
 import LandingPage from './components/LandingPage'
 import Footer from './components/Footer'
+import { scaleLinear } from 'd3-scale';
+import { max } from 'd3-array';
+import { select } from 'd3-selection';
+import * as d3 from "d3";
 const API = `${process.env.REACT_APP_API_URL}`
-
 
 class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { dataDisplay: 1, mapImageIndex: 0, trends: [] }
+    this.state = {
+      dataDisplay: 1,
+      mapImageIndex: 0,
+      trends: [],
+      lastSearch: 'Colorado'
+    }
   }
 
   /* pulls our current user and their saved searches from db
   based on the current signed in user.*/
 
   async componentDidMount() {
-    const url = document.location.href
-    const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
-    console.log(userId)
-    const res = await fetch(`${API}/users/${userId}`)
-    const searches = await res.json()
-    const terms = searches.map(search => search.term)
-    console.log(terms)
-    if(searches) {
-        this.setState({
-          loggedIn: true,
-          user: searches[0].id,
-          terms: terms
-        })
-      }
-    console.log('state', this.state)
+    setInterval(this.changeMapImage, 1000)
     const response = await fetch(`${API}/twitter/trends`)
     const json = await response.json()
     console.log('json from trends', json);
     this.setState({ trends: json })
     console.log('state of trends: ', this.state.trends);
+
+    const data = await fetch(`${API}/twitter/related?term=Colorado`)
+    const jsonData = await data.json()
+    this.setState({ searchResults: jsonData })
+
+    const url = document.location.href
+    const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
+    console.log(userId)
+    const res = await fetch(`${API}/users/${userId}`)
+    console.log('res from mount: ', res);
+    const searches = await res.json()
+    const terms = searches.map(search => search.term)
+    console.log('is something broken?');
+    if(searches) {
+      this.setState({
+        loggedIn: true,
+        user: searches[0].id,
+        terms: terms,
+        trends: json
+      })
+    }
+
   }
 
   /* function to pull out the search term, save it to the db,
@@ -69,6 +85,10 @@ class App extends Component {
     this.setState({
       recentTerm: recent
     })
+
+  // stop animating population map
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
   }
 
   /* function to insert a clicked on 'recent' value into the searchbar*/
@@ -111,6 +131,7 @@ class App extends Component {
     const jsonData = await data.json()
     console.log('jsonData ', jsonData);
     this.setState({searchResults: jsonData, lastSearch: value})
+
   }
 
 
@@ -129,8 +150,11 @@ class App extends Component {
               trends={this.state.trends}
               updateDataDisplay={this.updateDataDisplay}
               mapImageIndex={this.state.mapImageIndex}
-              searchTerms={ this.state.terms }
+              submitSearch={this.submitSearch}
+              searchTerms={this.state.terms}
               saveSearch={ this.saveSearch }
+              searchResults={this.state.searchResults}
+              lastSearch={this.state.searchResults}
               pullRecent={ this.pullRecent }
               recentTerm={ this.state.recentTerm }
             /> :
@@ -142,11 +166,13 @@ class App extends Component {
           updateDataDisplay={this.updateDataDisplay}
           mapImageIndex={this.state.mapImageIndex}
           submitSearch={this.submitSearch}
-          searchTerms={ this.state.terms }
-          saveSearch={ this.saveSearch }
+          searchTerms={this.state.terms}
+          saveSearch={this.saveSearch}
+          searchResults={this.state.searchResults}
+          lastSearch={this.state.lastSearch}
           pullRecent={ this.pullRecent }
           recentTerm={ this.state.recentTerm }
-        /> */}
+        />
         <Footer />
       </div>
     );

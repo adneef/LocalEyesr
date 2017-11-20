@@ -2,7 +2,7 @@ import React from 'react'
 import Searchbar from './sub-sections/Searchbar'
 import RecentButtonsBar from './sub-sections/RecentButtonsBar'
 
-const Toolbar = ({ searchTerms, saveSearch, pullRecent, recentTerm }) => {
+const Toolbar = ({ submitSearch, searchTerms, saveSearch, updateDataDisplay, pullRecent, recentTerm }) => {
 
   return(
     <div className="container-fluid toolbar">
@@ -14,6 +14,9 @@ const Toolbar = ({ searchTerms, saveSearch, pullRecent, recentTerm }) => {
         <RecentButtonsBar
           searchTerms={ searchTerms }
           pullRecent={ pullRecent }
+          submitSearch={submitSearch}
+          saveSearch={saveSearch}
+          updateDataDisplay={updateDataDisplay}
         />
       </div>
     </div>
