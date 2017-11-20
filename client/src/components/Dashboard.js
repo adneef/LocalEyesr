@@ -6,12 +6,16 @@ const Dashboard = ({
   dataDisplay,
   updateDataDisplay,
   mapImageIndex,
-  submitSearch }) => {
+  submitSearch,
+  searchTerms,
+  saveSearch }) => {
 
   return (
     <div>
       <Toolbar
         submitSearch={submitSearch}
+        searchTerms={ searchTerms }
+        saveSearch={ saveSearch }
       />
       <Data
         dataDisplay={dataDisplay}

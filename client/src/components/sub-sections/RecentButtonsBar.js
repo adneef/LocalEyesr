@@ -1,17 +1,15 @@
 import React from 'react'
 
-const RecentButtonsBar = () => {
+const RecentButtonsBar = ({ searchTerms }) => {
 
   return (
 
     <div className="buttons-container">
-      {/* needs a function to dynamically populate each button with recent searches */}
-      <button className="btn btn-recent">Recent</button>
-      <button className="btn btn-recent">Recent</button>
-      <button className="btn btn-recent">Recent</button>
-      <button className="btn btn-recent">Recent</button>
-      <button className="btn btn-recent">Recent</button>
-      <button className="btn btn-recent">Recent</button>
+      {/* needs logic to limit total button number to...6? */}
+      {/* also needs logic to pull out the value of the button when clicked on, and populate the search bar with that value */}
+      {searchTerms.map(term => {
+        return <button className="btn btn-recent" key={searchTerms.indexOf(term)}>{term}</button>
+      })}
     </div>
 
   )

@@ -13,14 +13,19 @@ class App extends Component {
     this.state = { dataDisplay: 1, mapImageIndex: 0, trends: [] }
   }
 
+  /* pulls our current user and their saved searches from db -
+  currently hard-coded, just needs a return from our backend
+  that says what user is signed in.*/
   async componentDidMount() {
-    const res = await fetch(API)
-    // console.log('res.body.id ', res.body.id)
-    if(res) {
+    const res = await fetch(`${API}/users/1`)
+    const searches = await res.json()
+    const terms = searches.map(search => search.term)
+    if(searches) {
         this.setState({
-          loggedIn: true
+          loggedIn: true,
+          user: searches[0].id,
+          terms: terms
         })
-        setInterval(this.changeMapImage, 1000)
       }
     console.log('state', this.state)
     const response = await fetch(`${API}/twitter/trends`)
@@ -30,13 +35,36 @@ class App extends Component {
     console.log('state of trends: ', this.state.trends);
   }
 
+  //function to pull out the search term and save it to the db
+  saveSearch = async (search) => {
+    const postObj = {
+      id: this.state.user,
+      term: search
+    }
+    const res = await fetch(`${API}/users`, {
+      method: 'POST',
+      body: JSON.stringify(postObj),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+    })
+    const json = await res.json()
+    console.log(json)
+    this.setState({
+      terms: [
+        ...this.state.terms,
+        json
+      ]
+    })
+
   // stop animating population map
   componentWillUnmount(){
     clearInterval(this.intervalId);
   }
 
   handleLogin = async () => {
-    console.log('handling login');
+    console.log('handling login, this is the route:', API);
     return await fetch(`${API}/auth/google`)
   }
 
@@ -83,6 +111,8 @@ class App extends Component {
               trends={this.state.trends}
               updateDataDisplay={this.updateDataDisplay}
               mapImageIndex={this.state.mapImageIndex}
+              searchTerms={this.state.terms}
+              saveSearch={ this.saveSearch }
             /> :
             <LandingPage />
         } */}
