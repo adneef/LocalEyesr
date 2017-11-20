@@ -6,8 +6,8 @@ const Search = ({ messages, searchList, saveSearch, recentTerm, submitSearch }) 
     e.preventDefault()
     let search = e.target.firstChild.value
     console.log('search term from searchbar: ', search);
-    // saveSearch(search)
-    submitSearch(search)
+    saveSearch(search)
+    // submitSearch(search)
   }
 
   // const saveIt = (e) => {

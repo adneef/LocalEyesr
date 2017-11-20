@@ -13,23 +13,8 @@ class App extends Component {
     this.state = { dataDisplay: 1, mapImageIndex: 0, trends: [] }
   }
 
-  /* pulls our current user and their saved searches from db -
-  currently hard-coded, just needs a return from our backend
-  that says what user is signed in.*/
-
-// async componentDidMount() {
-//   const res = await fetch(`${API}/users/1`)
-//     const searches = await res.json()
-//     const terms = searches.map(search => search.term)
-//     if(searches) {
-//         this.setState({
-//           loggedIn: true,
-//           user: searches[0].id,
-//           terms: terms
-//         })
-//       }
-//     console.log('state', this.state)
-// }
+  /* pulls our current user and their saved searches from db
+  based on the current signed in user.*/
 
   async componentDidMount() {
     const url = document.location.href
@@ -96,11 +81,6 @@ class App extends Component {
   componentWillUnmount() {
     clearInterval(this.intervalId);
   }
-
-  // handleLogin = async () => {
-  //   console.log('handling login, this is the route:', API);
-  //   return await fetch(`${API}/auth/google`)
-  // }
 
   handleLogout = async () => {
     console.log('handling logout');
