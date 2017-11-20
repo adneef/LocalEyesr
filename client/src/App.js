@@ -32,11 +32,11 @@ class App extends Component {
         })
       }
     console.log('state', this.state)
-    // const response = await fetch(`${API}/twitter/trends`)
-    // const json = await response.json()
-    // console.log('json from trends', json);
-    // this.setState({ trends: json })
-    // console.log('state of trends: ', this.state.trends);
+    const response = await fetch(`${API}/twitter/trends`)
+    const json = await response.json()
+    console.log('json from trends', json);
+    this.setState({ trends: json })
+    console.log('state of trends: ', this.state.trends);
   }
 
   /* function to pull out the search term, save it to the db,
