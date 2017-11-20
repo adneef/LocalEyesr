@@ -6,7 +6,9 @@ const LoginButton = ({handleLogin}) => {
 
   return(
     <div>
-      <button className="btn" onClick={handleLogin}>Login</button>
+      <button className="btn">
+        <a href='http://localhost:5000/auth/google'> Log In </a>
+      </button>
     </div>
   )
 

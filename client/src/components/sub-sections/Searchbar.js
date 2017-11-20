@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Search = ({ messages, searchList, saveSearch, recentTerm, submitSearch }) => {
->>>>>>> c7b6c366954e96e3952317875d2f34bed2d9732b
 
   const searchTerm = (e) => {
     e.preventDefault()

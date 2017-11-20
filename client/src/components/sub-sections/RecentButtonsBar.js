@@ -1,6 +1,7 @@
 import React from 'react'
 
 const RecentButtonsBar = ({ searchTerms, pullRecent }) => {
+  console.log('searchTerms in RecentButtonsBar:', searchTerms)
 
   const pull = (e) => {
     pullRecent(e.target.innerHTML)
