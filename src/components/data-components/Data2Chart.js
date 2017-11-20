@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
-const d3 = require('d3');
+import React from 'react'
+import Pie from './Pie'
+// const d3 = require('d3');
+
 // import { scaleLinear } from 'd3-scale’
 // import { max } from 'd3-array'
 // import { select } from 'd3-selection'
@@ -19,57 +21,24 @@ const Data2Chart = () => {
    // }
 
 
-     const dataset = [
-       { label: 'Abulia', count: 10 },
-       { label: 'Betelgeuse', count: 20 },
-       { label: 'Cantaloupe', count: 30 },
-       { label: 'Dijkstra', count: 40 }
-     ];
-
-     var width = 360;
-     var height = 360;
-     var radius = Math.min(width, height) / 2;
-     var color = d3.scaleOrdinal(d3.schemeCategory20b);
-     var color = d3.scaleOrdinal()
-       .range(['#A60F2B', '#648C85', '#B3F2C9', '#528C18', '#C3F25C']);
-
-     var svg = d3.select('#chart')
-       .append('svg')
-       .attr('width', width)
-       .attr('height', height)
-       .append('g')
-       .attr('transform', 'translate(' + (width / 2) +  ',' + (height / 2) + ')');
-
-     var arc = d3.arc()
-       .innerRadius(0)
-       .outerRadius(radius);
-
-     var pie = d3.pie()
-       .value(function(d) { return d.count; })
-       .sort(null);
-
-     var path = svg.selectAll('path')
-       .data(pie(dataset))
-       .enter()
-       .append('path')
-       .attr('d', arc)
-       .attr('fill', function(d, i) {
-         return color(d.data.label);
-       });
+    let data=[5, 2, 7, 1, 1, 3, 4, 9]
+     let width = window.innerWidth;
+    let height = window.innerHeight;
+    let minViewportSize = Math.min(width, height);
+    // This sets the radius of the pie chart to fit within
+    // the current window size, with some additional padding
+    let radius = (minViewportSize * .9) / 2;
+    // Centers the pie chart
+    let x = width / 2;
+    let y = height / 2;
 
 
 
       return (
-        <div>
-          <g transform={translate}>
-            {pie.map((d, i) => (
-                <LabeledArc key={`arc-${i}`}
-                            data={dataset}
-                            innerRadius={innerRadius}
-                            outerRadius={outerRadius}
-                            color={colors(i)} />))}
-        </g>
-        </div>
+        <svg width="100%" height="100%">
+        {/* We'll create this component in a minute */}
+        <Pie x={x} y={y} radius={radius} data={data} />
+      </svg>
       )
 
 }

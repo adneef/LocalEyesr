@@ -8,7 +8,7 @@ import Footer from './components/Footer'
 // import { select } from 'd3-selection';
 // import d3 from "d3";
 const API = `${process.env.REACT_APP_API_URL}`
-const d3 = require('d3');
+// const d3 = require('d3');
 
 
 class App extends Component {
@@ -95,7 +95,6 @@ class App extends Component {
 
   // animate colorado population density map
   changeMapImage = () => {
-    const mapListLength = 4
     let nextImageIndex = this.state.mapImageIndex + 1
     if (this.state.mapImageIndex < 3) {
       this.setState({ mapImageIndex: nextImageIndex })
