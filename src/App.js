@@ -111,9 +111,11 @@ class App extends Component {
 
   // search form connection to mapImages
   submitSearch = async (value) => {
+    console.log(value)
+    this.setState({ lastSearch: value })
     const data = await fetch(`${API}/twitter/related?term=${value}`)
     const jsonData = await data.json()
-    this.setState({searchResults: jsonData, lastSearch: value})
+    this.setState({searchResults: jsonData})
   }
 
 

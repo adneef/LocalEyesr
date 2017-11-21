@@ -14,6 +14,7 @@ const Search = ({
     submitSearch(search)
     saveSearch(search)
     updateDataDisplay(3)
+    e.target.firstChild.value = ''
   }
 
   return (
