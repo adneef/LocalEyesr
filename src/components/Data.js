@@ -14,7 +14,8 @@ const Data = ({
   denver,
   cosprings,
   boulder,
-  topTrendTweets }) => {
+  topTrendTweets,
+  topTrendTweets2 }) => {
 
   const toggleDropDown = () => {
     $('#dropdown-container').toggleClass('show')
