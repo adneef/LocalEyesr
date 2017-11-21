@@ -157,7 +157,7 @@ class App extends Component {
           searchResults={this.state.searchResults}
           lastSearch={this.state.lastSearch}
         /> */}
-        <LandingPage />
+        <LandingPage denver={this.state.denver} />
         <Footer />
       </div>
     );

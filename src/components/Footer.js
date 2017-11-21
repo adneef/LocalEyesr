@@ -5,12 +5,9 @@ const Footer = () => {
   return (
     <div className="container-fluid footer navbar-fixed-bottom">
       <div className="container">
-        <div className="header-left">
+        <div className="text-center">
           <h4 className="footer-title">LocalEyesr</h4>
-          <p>Current trends of Colorado</p>
-        </div>
-        <div className="header-right">
-          <p>Boulder, Colorado</p>
+          <p>Current Twitter Trends & Tweets of Colorado<br></br>copyright 2017</p>
         </div>
       </div>
     </div>

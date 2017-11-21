@@ -34,12 +34,14 @@ body, html {
   color: #b3b3b3;
   font-size: 40px;
   font-family: 'Shrikhand', cursive;
+  opacity: 0.5
 }
 
 .hero-subtext {
   color: #b3b3b3;
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
+  opacity: 0.5
 }
 
 .brianna {
@@ -93,15 +95,15 @@ body, html {
 }
 
 .tweet-section {
-  height: 500px;
-  padding: 20px;
+  height: 600px;
+  padding: 50px;
   background-color: white;
 }
 
 .about-us {
   background-color: #9aad83;
-  height: 700px;
-  padding: 20px;
+  height: 800px;
+  padding: 50px;
 }
 
 .about-us-card {
@@ -116,6 +118,11 @@ body, html {
 .section-title {
   font-family: 'Shrikhand', cursive;
   color: #9aad83;
+}
+
+.section-title-about {
+  font-family: 'Shrikhand', cursive;
+  color: #ededed;
 }
 
 .borderbox {
