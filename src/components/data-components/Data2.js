@@ -12,7 +12,7 @@ const Data2 = ({ trends }) => {
         <h4>Sourced from Twitter</h4>
         <div className="d-flex">
           <Data2Chart
-            props={this.props}
+            data={trends}
           />
           {/* <img className="data-image" src={require('./images/top-twitter-trends.png')} alt="top twitter trends in colorado" /> */}
           <div>

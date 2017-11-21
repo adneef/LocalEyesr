@@ -6,12 +6,16 @@ class Data2Chart extends Component {
   constructor(props) {
     super(props)
     this.createPieChart = this.createPieChart.bind(this)
+
   }
+
   componentDidMount() {
     if (this.props.data) {
       this.createPieChart()
     }
+    console.log('PROPS FROM DATA CHART: ', this.props.data);
   }
+
   componentDidUpdate() {
     if (this.props.data) {
       this.createPieChart()
@@ -48,12 +52,12 @@ class Data2Chart extends Component {
 
     arc.append("path")
         .attr("d", path)
-        .attr("fill", function(d) { return color(d.name) })
+        .attr("fill", function(d) { return color(d.data.name) })
 
     arc.append("text")
         .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")" })
         .attr("dy", "0.35em")
-        .text(function(d) { return d.name; })
+        .text(function(d) { return d.data.name; })
 
   }
 
@@ -61,7 +65,7 @@ class Data2Chart extends Component {
   render() {
     return(
       <div>
-        <svg className="data-image"></svg>
+        <svg width="700" height="700" className="data-image"></svg>
       </div>
     )
   }
