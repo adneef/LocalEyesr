@@ -135,7 +135,7 @@ class App extends Component {
               searchTerms={this.state.terms}
               saveSearch={ this.saveSearch }
               searchResults={this.state.searchResults}
-              lastSearch={this.state.lastResults}
+              lastSearch={this.state.lastSearch}
               denver={this.state.denver}
               cosprings={this.state.cosprings}
             /> :
