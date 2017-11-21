@@ -6,16 +6,16 @@ const Search = ({
   searchList,
   submitSearch,
   saveSearch,
-  updateDataDisplay 
+  updateDataDisplay
 }) => {
 
   const searchTerm = (e) => {
     e.preventDefault()
     let search = e.target.firstChild.value
     console.log('search term from searchbar: ', search);
-    submitSearch(search)
+    // submitSearch(search)
     updateDataDisplay(3)
-    // saveSearch(search)
+    saveSearch(search)
   }
 
   // const saveIt = (e) => {

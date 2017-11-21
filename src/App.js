@@ -17,7 +17,8 @@ class App extends Component {
     this.state = {
       dataDisplay: 1,
       mapImageIndex: 0,
-      trends: []
+      trends: [],
+      terms:[]
       // lastSearch: 'Colorado'
     }
   }
@@ -37,21 +38,24 @@ class App extends Component {
     const jsonData = await data.json()
     this.setState({ searchResults: jsonData })
 
-    // const url = document.location.href
-    // const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
-    // console.log(userId)
-    // const res = await fetch(`${API}/users/${userId}`)
-    // const searches = await res.json()
-    // const terms = searches.map(search => search.term)
-    // console.log('terms:', terms);
-    // if(searches) {
-    //   this.setState({
-    //     loggedIn: true,
-    //     user: searches[0].id,
-    //     terms: terms,
-    //     trends: json
-    //   })
-    // }
+    if(document.location.href === 'http://localhost:3000/2#') {
+      const url = document.location.href
+      console.log(url)
+      const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
+      console.log(userId)
+      const res = await fetch(`${API}/users/${userId}`)
+      const searches = await res.json()
+      const terms = searches.map(search => search.term)
+      console.log('terms:', terms);
+      if(searches) {
+        this.setState({
+          loggedIn: true,
+          user: searches[0].id,
+          terms: terms,
+          trends: json
+        })
+      }
+    }
 
   }
 
@@ -84,34 +88,6 @@ class App extends Component {
     clearInterval(this.intervalId);
   }
 
-  handleLogin = async () => {
-    const url = document.location.href
-    const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
-    console.log(userId)
-    const res = await fetch(`${API}/users/${userId}`)
-    const searches = await res.json()
-    const terms = searches.map(search => search.term)
-    console.log('terms:', terms);
-    if(searches) {
-      this.setState({
-        loggedIn: true,
-        user: userId,
-        terms: terms
-      })
-    } else {
-      this.setState({
-        loggedIn: true,
-        user: userId,
-        terms: []
-      })
-    }
-  }
-
-  handleLogout = async () => {
-    console.log('handling logout');
-    return await fetch(`${API}/auth/logout`)
-  }
-
   // animate colorado population density map
   changeMapImage = () => {
     const mapListLength = 4
@@ -142,7 +118,9 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Header handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedIn={this.state.loggedIn}/>
+        <Header
+          handleLogin={this.handleLogin}
+          loggedIn={this.state.loggedIn}/>
         {
           this.state.loggedIn ?
             <Dashboard
