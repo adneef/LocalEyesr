@@ -129,7 +129,7 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <Header handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedIn={this.state.loggedIn}/>
-        {/* {
+        {
           this.state.loggedIn ?
             <Dashboard
               dataDisplay={this.state.dataDisplay}
@@ -140,11 +140,11 @@ class App extends Component {
               searchTerms={this.state.terms}
               saveSearch={ this.saveSearch }
               searchResults={this.state.searchResults}
-              lastSearch={this.state.searchResults}
+              lastSearch={this.state.lastResults}
             /> :
             <LandingPage />
-        } */}
-        <Dashboard
+        }
+        {/* <Dashboard
           dataDisplay={this.state.dataDisplay}
           trends={this.state.trends}
           denver={this.state.denver}
@@ -156,7 +156,7 @@ class App extends Component {
           saveSearch={this.saveSearch}
           searchResults={this.state.searchResults}
           lastSearch={this.state.lastSearch}
-        />
+        /> */}
         {/* <LandingPage /> */}
         <Footer />
       </div>
