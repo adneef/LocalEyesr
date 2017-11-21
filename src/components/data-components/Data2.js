@@ -53,7 +53,7 @@ const Data2 = ({ trends, topTrendTweets, topTrendTweets2 }) => {
           </div>
         </div>
 
-        <div className="">
+        {/* <div className="">
           {
             topTrendTweets ?
             <div>
@@ -77,9 +77,9 @@ const Data2 = ({ trends, topTrendTweets, topTrendTweets2 }) => {
             </div>
             : <div>Loading</div>
           }
-        </div>
+        </div> */}
 
-        <div className="">
+        {/* <div className="">
           {
             topTrendTweets2 ?
             <div>
@@ -103,7 +103,7 @@ const Data2 = ({ trends, topTrendTweets, topTrendTweets2 }) => {
             </div>
             : <div>Loading</div>
           }
-        </div>
+        </div> */}
 
       </div>
     </div>

@@ -48,13 +48,13 @@ class App extends Component {
     const jsonData = await data.json()
     this.setState({ searchResults: jsonData })
 
-    const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
-    const trendJson = await res.json()
-    this.setState({ topTrendTweets: trendJson })
-
-    const res2 = await fetch(`${API}/twitter/tweets?term=${this.state.trends[1].name}`)
-    const trendJson2 = await res2.json()
-    this.setState({ topTrendTweets2: trendJson2 })
+    // const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
+    // const trendJson = await res.json()
+    // this.setState({ topTrendTweets: trendJson })
+    //
+    // const res2 = await fetch(`${API}/twitter/tweets?term=${this.state.trends[1].name}`)
+    // const trendJson2 = await res2.json()
+    // this.setState({ topTrendTweets2: trendJson2 })
 
     if(document.location.href === 'http://localhost:3000/2#') {
       const url = document.location.href
