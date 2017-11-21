@@ -6,7 +6,7 @@ const Search = ({
   searchList,
   submitSearch,
   saveSearch,
-  updateDataDisplay 
+  updateDataDisplay
 }) => {
 
   const searchTerm = (e) => {
@@ -27,9 +27,10 @@ const Search = ({
 
   return (
     <div>
+      <span className="search-text">SEARCH A TREND ON TWITTER</span>
       <form className="d-flex search-form" onSubmit={searchTerm}>
         <input id="search-input" className="form-control search-bar" placeholder="Search"/>
-        <button id="search-button" className="btn">Search</button>
+        <button id="search-button" className="btn">SEARCH</button>
       </form>
     </div>
   )

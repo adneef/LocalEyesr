@@ -4,7 +4,7 @@ const DashboardButton = () => {
 
   return(
     <div>
-      <button className="btn">My Dashboard</button>
+      <button className="btn">DASHBOARD</button>
     </div>
   )
 

@@ -39,7 +39,7 @@ const Data = ({ dataDisplay,
       <div className="data-container">
         <div id="dropdown-container" className="dropdown">
           <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" onClick={toggleDropDown}>
-            Choose Your Data:
+            CHANGE YOUR DATA DISPLAY:
             <span className="caret"></span>
           </button>
           <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -49,25 +49,27 @@ const Data = ({ dataDisplay,
             <li><a id="data-4" className="dropdown-item" onClick={changeDisplay}>Related Twitter Test</a></li>
           </ul>
         </div>
-        <div>
-          {
-            dataDisplay === 1 ? <Data1 mapImageIndex={mapImageIndex} /> : null
-          }
-        </div>
-        <div>
-          {
-            dataDisplay === 2 ? <Data2 trends={trends} /> : null
-          }
-        </div>
-        <div>
-          {
-            dataDisplay === 3 ? <SearchData searchResults={searchResults} lastSearch={lastSearch} /> : null
-          }
-        </div>
-        <div>
-          {
-            dataDisplay === 4 ? <Barchart data={searchResults} lastSearch={lastSearch} /> : null
-          }
+        <div className="data-box">
+          <div>
+            {
+              dataDisplay === 1 ? <Data1 mapImageIndex={mapImageIndex} /> : null
+            }
+          </div>
+          <div>
+            {
+              dataDisplay === 2 ? <Data2 trends={trends} /> : null
+            }
+          </div>
+          <div>
+            {
+              dataDisplay === 3 ? <SearchData searchResults={searchResults} lastSearch={lastSearch} /> : null
+            }
+          </div>
+          <div>
+            {
+              dataDisplay === 4 ? <Barchart data={searchResults} lastSearch={lastSearch} /> : null
+            }
+          </div>
         </div>
       </div>
     </div>

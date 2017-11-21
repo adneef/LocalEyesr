@@ -10,7 +10,7 @@ const Header = ({loggedIn, handleLogin, handleLogout}) => {
       <div className="container d-flex justify-content-between">
         <div className="header-left flex-row">
           <h1 className="logo-text">LocalEyesr</h1>
-          <h5 className="logo-sub-text">Discover Colorado with Data Visualization</h5>
+          {/* <h5 className="logo-sub-text">Keep your finger on the pulse of Colorado</h5> */}
         </div>
         <div className="header-right row align-items-center">
           {loggedIn ?   <LogoutButton handleLogout={handleLogout}/> : <LoginButton handleLogin={handleLogin}/>}

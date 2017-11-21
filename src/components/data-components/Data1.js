@@ -13,8 +13,8 @@ const Data1 = ({ mapImageIndex }) => {
   return (
     <div className="container">
       <div className="text-center">
-        <h1>Colorado Population Density</h1>
-        <h4>Sourced from the U.S. Census Bureau</h4>
+        <h1 className="data-title">Colorado Population Density</h1>
+        <h5>Sourced from the U.S. Census Bureau</h5>
         <img className="data-image" src={require(`${mapImages[mapImageIndex]}`)} alt="pop map" />
         <img className="" src={require('./images/pop-key.png')} alt="pop map key" />
       </div>

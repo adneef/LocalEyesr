@@ -6,7 +6,7 @@ const LoginButton = ({handleLogin}) => {
 
   return(
     <div>
-      <button className="btn" onClick={handleLogin}>Login</button>
+      <button className="btn" onClick={handleLogin}>LOGIN</button>
     </div>
   )
 
