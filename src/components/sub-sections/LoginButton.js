@@ -5,7 +5,7 @@ const LoginButton = () => {
 
   return(
     <div>
-      <button className="btn"><a href={ API }>Login</a></button>
+      <button className="btn"><a href={ API }>LOGIN</a></button>
     </div>
   )
 

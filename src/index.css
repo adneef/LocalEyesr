@@ -3,6 +3,11 @@ body, html {
   padding: 0;
   font-family: sans-serif;
   height: 100%;
+  background-color: #ededed;
+}
+
+a {
+  color: white;
 }
 
 .container-fluid {
@@ -11,9 +16,117 @@ body, html {
 }
 
 .header-nav {
-  background-color: orange;
+  background-color: #181818;
   height: 120px;
   padding-top: 20px;
+}
+
+.btn {
+  background-color: #9aad83;
+  color: white;
+}
+
+.hero-image {
+  background-image: url('./components/data-components/images/colorado-hero1.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+  padding-top: 90px;
+}
+
+.hero-text {
+  color: #b3b3b3;
+  font-size: 40px;
+  font-family: 'Shrikhand', cursive;
+  opacity: 0.5
+}
+
+.hero-subtext {
+  color: #b3b3b3;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  opacity: 0.5
+}
+
+.brianna {
+  background-image: url('./components/data-components/images/brigreene.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 250px;
+}
+
+.danah {
+  background-image: url('./components/data-components/images/danaholivetree.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 250px;
+}
+
+.adam {
+  background-image: url('./components/data-components/images/adamneef.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 250px;
+}
+
+.pie-example {
+  background-image: url('./components/data-components/images/top-twitter-trends.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+
+.map-example {
+  background-image: url('./components/data-components/images/map04.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+
+.bubble-example {
+  background-image: url('./components/data-components/images/bubble-holder.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+
+.info-section {
+  height: 600px;
+  padding: 50px;
+}
+
+.tweet-section {
+  height: 650px;
+  padding: 50px;
+  background-color: white;
+}
+
+.about-us {
+  background-color: #9aad83;
+  height: 800px;
+  padding: 50px;
+}
+
+.about-us-card {
+  width: 30%;
+}
+
+.name-title {
+  font-family: 'Shrikhand', cursive;
+  font-size: 35px;
+}
+
+.section-title {
+  font-family: 'Shrikhand', cursive;
+  color: #9aad83;
+}
+
+.section-title-about {
+  font-family: 'Shrikhand', cursive;
+  color: #ededed;
 }
 
 .borderbox {
@@ -22,29 +135,39 @@ body, html {
 
 .logo-text {
   color: white;
+  font-size: 60px;
+  font-family: 'Shrikhand', cursive;
+  margin-top: 10px;
 }
 
 .logo-sub-text {
-  color: white;
+  color: #b3b3b3;
   font-size: 18px;
 }
 
 .toolbar {
-  background-color: lightgrey;
-  height: 130px;
+  background-color: #282828;
+  height: 150px;
+  padding: 10px;
+}
+
+.search-text {
+  color: #9b9b9b;
+  margin: 10px;
 }
 
 .search-form {
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 20px;
 }
 
 .search-bar {
-  width: 70%;
+  width: 80%;
 }
 
 #search-button {
   margin-left: 20px;
+  width: 150px;
 }
 
 .btn-recent {
@@ -60,9 +183,23 @@ body, html {
 
 .footer {
   background-color: lightgrey;
-  height: 200px;
+  height: 150px;
   color: white;
   padding-top: 20px;
+}
+
+.footer-title {
+  font-family: 'Shrikhand', cursive;
+  font-size: 40px;
+}
+
+.data-title {
+ font-family: 'Open Sans', sans-serif;
+ color: #181818;
+}
+
+.data-box {
+  margin-top: 50px;
 }
 
 .data-image {
@@ -71,25 +208,32 @@ body, html {
   max-height: 700px;
 }
 
-/*.data-image-1 {
-  background-image: url("./components/data-components/images/co-pop-full.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto;
-  min-height: 500px;
-  min-width: 500px;
-  max-height: 900px;
-}*/
-
 .dropdown-toggle {
-  background-color: orange;
-  color: white;
+  background-color: #b3b3b3;
+  color: black;
 }
 
 .dropdown-item {
   color: orange;
   text-decoration: underline;
   font-weight: bold;
+}
+
+.card {
+  margin-top: 30px;
+  padding: 20px;
+  color: #282828;
+}
+
+.card-title {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+}
+
+.main-card {
+  background-color: #b3b3b3;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 .color-key-block {
@@ -144,4 +288,8 @@ body, html {
 
 .arc path {
   stroke: #fff;
+}
+
+.arc path :hover {
+  background-color: green;
 }

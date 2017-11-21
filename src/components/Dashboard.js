@@ -11,8 +11,9 @@ const Dashboard = ({
   searchTerms,
   saveSearch,
   searchResults,
-  lastSearch
-}) => {
+  lastSearch,
+  denver,
+  cosprings }) => {
 
   return (
     <div>
@@ -25,6 +26,8 @@ const Dashboard = ({
       <Data
         dataDisplay={dataDisplay}
         trends={trends}
+        denver={denver}
+        cosprings={cosprings}
         updateDataDisplay={updateDataDisplay}
         mapImageIndex={mapImageIndex}
         searchResults={searchResults}

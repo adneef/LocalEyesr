@@ -12,7 +12,8 @@ const Data = ({ dataDisplay,
   mapImageIndex,
   searchResults,
   lastSearch,
-}) => {
+  denver,
+  cosprings }) => {
 
   const toggleDropDown = () => {
     $('#dropdown-container').toggleClass('show')
@@ -28,9 +29,6 @@ const Data = ({ dataDisplay,
     if (e.target.id === 'data-3') {
       updateDataDisplay(3)
     }
-    if (e.target.id === 'data-4') {
-      updateDataDisplay(4)
-    }
   }
 
 
@@ -39,35 +37,31 @@ const Data = ({ dataDisplay,
       <div className="data-container">
         <div id="dropdown-container" className="dropdown">
           <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" onClick={toggleDropDown}>
-            Choose Your Data:
+            CHANGE YOUR DATA DISPLAY:
             <span className="caret"></span>
           </button>
           <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
             <li><a id="data-1" className="dropdown-item" onClick={changeDisplay}>Colorado Population Density Map</a></li>
             <li><a id="data-2" className="dropdown-item" onClick={changeDisplay}>Top Trending Tweets of Colorado</a></li>
             <li><a id="data-3" className="dropdown-item" onClick={changeDisplay}>Related Twitter HashTags</a></li>
-            <li><a id="data-4" className="dropdown-item" onClick={changeDisplay}>Related Twitter Test</a></li>
           </ul>
         </div>
-        <div>
-          {
-            dataDisplay === 1 ? <Data1 mapImageIndex={mapImageIndex} /> : null
-          }
-        </div>
-        <div>
-          {
-            dataDisplay === 2 ? <Data2 trends={trends} /> : null
-          }
-        </div>
-        <div>
-          {
-            dataDisplay === 3 ? <SearchData searchResults={searchResults} lastSearch={lastSearch} /> : null
-          }
-        </div>
-        <div>
-          {
-            dataDisplay === 4 ? <Barchart data={searchResults} lastSearch={lastSearch} /> : null
-          }
+        <div className="data-box">
+          <div>
+            {
+              dataDisplay === 1 ? <Data1 mapImageIndex={mapImageIndex} denver={denver} cosprings={cosprings} /> : null
+            }
+          </div>
+          <div>
+            {
+              dataDisplay === 2 ? <Data2 trends={trends} /> : null
+            }
+          </div>
+          <div>
+            {
+              dataDisplay === 3 ? <SearchData searchResults={searchResults} lastSearch={lastSearch} /> : null
+            }
+          </div>
         </div>
       </div>
     </div>

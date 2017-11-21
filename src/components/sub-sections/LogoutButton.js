@@ -5,7 +5,7 @@ const LogoutButton = () => {
 
   return(
     <div>
-      <button className="btn"><a href={ API }>Log Out</a></button>
+      <button className="btn"><a href={ API }>LOG OUT</a></button>
     </div>
   )
 

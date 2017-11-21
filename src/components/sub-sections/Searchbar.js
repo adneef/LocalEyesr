@@ -6,23 +6,23 @@ const Search = ({
   searchList,
   submitSearch,
   saveSearch,
-  updateDataDisplay
-}) => {
+  updateDataDisplay }) => {
 
   const searchTerm = (e) => {
     e.preventDefault()
     let search = e.target.firstChild.value
-    console.log('search term from searchbar: ', search);
     submitSearch(search)
     saveSearch(search)
     updateDataDisplay(3)
+    saveSearch(search)
   }
 
   return (
     <div>
+      <span className="search-text">SEARCH A TREND ON TWITTER</span>
       <form className="d-flex search-form" onSubmit={searchTerm}>
         <input id="search-input" className="form-control search-bar" placeholder="Search"/>
-        <button id="search-button" className="btn">Search</button>
+        <button id="search-button" className="btn">SEARCH</button>
       </form>
     </div>
   )

@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-// import '../../../index.css'
 import * as d3 from 'd3'
 
 class Barchart extends Component {

@@ -3,7 +3,6 @@ import Data2Chart from './Data2Chart'
 
 
 const Data2 = ({ trends }) => {
-  console.log('trends from data 2: ', trends);
 
   return (
     <div className="container">
@@ -14,7 +13,7 @@ const Data2 = ({ trends }) => {
           <Data2Chart
             data={trends}
           />
-          {/* <img className="data-image" src={require('./images/top-twitter-trends.png')} alt="top twitter trends in colorado" /> */}
+
           <div>
             <div className="key-group row d-flex-inline">
               <div className="color-key-block key-1"></div>
@@ -49,6 +48,35 @@ const Data2 = ({ trends }) => {
               <div><strong>{trends[7].name}: {trends[7].tweets}</strong></div>
             </div>
           </div>
+        </div>
+
+        <div>
+          {
+            // denver ?
+            <div>
+              <div className="card main-card">
+                <div className="card-body">
+                  <h4 className="card-title">DENVER: population 682,545</h4>
+                  <div className="card">
+                    {/* <p className="card-text"><strong>DATE: </strong> {denver[0].created_at}</p>
+                    <p className="card-text"><strong>TWEET: </strong> {denver[0].text}</p>
+                    <p className="card-text"><strong>HASHTAGS: </strong> {denver[0].hashtags}</p> */}
+                  </div>
+                  <div className="card">
+                    {/* <p className="card-text"><strong>DATE: </strong> {denver[1].created_at}</p>
+                    <p className="card-text"><strong>TWEET: </strong> {denver[1].text}</p>
+                    <p className="card-text"><strong>HASHTAGS: </strong> {denver[1].hashtags}</p> */}
+                  </div>
+                  <div className="card">
+                    {/* <p className="card-text"><strong>DATE: </strong> {denver[3].created_at}</p>
+                    <p className="card-text"><strong>TWEET: </strong> {denver[3].text}</p>
+                    <p className="card-text"><strong>HASHTAGS: </strong> {denver[3].hashtags}</p> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+            // : <div>Loading</div>
+          }
         </div>
 
       </div>

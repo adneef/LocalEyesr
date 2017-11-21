@@ -3,6 +3,7 @@ import * as d3 from "d3";
 
 
 class Data2Chart extends Component {
+  
   constructor(props) {
     super(props)
     this.createPieChart = this.createPieChart.bind(this)
@@ -13,7 +14,6 @@ class Data2Chart extends Component {
     if (this.props.data) {
       this.createPieChart()
     }
-    console.log('PROPS FROM DATA CHART: ', this.props.data);
   }
 
   componentDidUpdate() {
@@ -53,6 +53,9 @@ class Data2Chart extends Component {
     arc.append("path")
         .attr("d", path)
         .attr("fill", function(d) { return color(d.data.name) })
+        // .on("mouseover", function(d) {
+        //   d3.select(this).dosomething
+        // })
 
     arc.append("text")
         .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")" })
