@@ -18,8 +18,8 @@ class App extends Component {
       dataDisplay: 1,
       mapImageIndex: 0,
       trends: [],
-      terms:[]
-      // lastSearch: 'Colorado'
+      terms:[],
+      lastSearch: 'Colorado'
     }
   }
 
@@ -47,16 +47,20 @@ class App extends Component {
       const searches = await res.json()
       const terms = searches.map(search => search.term)
       console.log('terms:', terms);
-      if(searches) {
+      if(userId) {
         this.setState({
           loggedIn: true,
-          user: searches[0].id,
+          user: userId,
           terms: terms,
           trends: json
         })
-      }
+      } else {
+        this.setState({
+          loggedIn: false,
+          trends: json
+      })
     }
-
+  }
   }
 
   //function to pull out the search term and save it to the db

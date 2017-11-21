@@ -13,9 +13,9 @@ const Search = ({
     e.preventDefault()
     let search = e.target.firstChild.value
     console.log('search term from searchbar: ', search);
-    // submitSearch(search)
-    updateDataDisplay(3)
-    saveSearch(search)
+    submitSearch(search)
+    // saveSearch(search)
+    // updateDataDisplay(3)
   }
 
   // const saveIt = (e) => {

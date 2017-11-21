@@ -12,7 +12,13 @@ const SearchData = ({ searchResults, lastSearch, }) => {
         <h1>Related Hashtags to: {lastSearch ? lastSearch : 'Colorado'}</h1>
         <h4>Sourced from Twitter</h4>
         <div className="data-image">
-          <Barchart data={searchResults} />
+          {
+            searchResults ?
+            <div>
+              <Barchart data={searchResults} />
+            </div>
+            : <div>Loading</div>
+          }
         </div>
         {/*<img className="data-image" src={require('./images/bubble-holder.png')} alt="pop map" />*/}
       </div>
