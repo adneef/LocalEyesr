@@ -53,7 +53,7 @@ class App extends Component {
     this.setState({ topTrendTweets: trendJson })
 
     const res2 = await fetch(`${API}/twitter/tweets?term=${this.state.trends[1].name}`)
-    const trendJson2 = await res.json()
+    const trendJson2 = await res2.json()
     this.setState({ topTrendTweets2: trendJson2 })
 
     if(document.location.href === 'http://localhost:3000/2#') {
