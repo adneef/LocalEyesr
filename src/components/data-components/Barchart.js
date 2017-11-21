@@ -14,13 +14,13 @@ class Barchart extends Component {
   }
   componentDidUpdate() {
     if (this.props.data) {
+      d3.select(".barchart").selectAll("*").remove()
       this.createBarChart()
     }
   }
   componentWillUnmount() {
-    
+    d3.select(".barchart").selectAll("*").remove()
   }
-
 
   createBarChart() {
     var bar = d3.select(".barchart").append("svg")
@@ -31,7 +31,7 @@ class Barchart extends Component {
       .data(this.props.data)
       .enter().append("rect")
       .attr("class", "bar")
-      .attr("width", function(d, i) {return ((d.count) * 50)})
+      .attr("width", function(d, i) {return ((d.count) * 100)})
       .attr("height", function(d, i) {return (500 / 30)})
       .attr("y", function(d, i) {return (i * 20)})
       .attr("x", "200")
