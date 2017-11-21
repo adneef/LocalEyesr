@@ -53,6 +53,9 @@ class Data2Chart extends Component {
     arc.append("path")
         .attr("d", path)
         .attr("fill", function(d) { return color(d.data.name) })
+        // .on("mouseover", function(d) {
+        //   d3.select(this).dosomething
+        // })
 
     arc.append("text")
         .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")" })

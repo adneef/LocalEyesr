@@ -145,3 +145,7 @@ body, html {
 .arc path {
   stroke: #fff;
 }
+
+.arc path :hover {
+  background-color: green;
+}
