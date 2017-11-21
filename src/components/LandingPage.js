@@ -49,7 +49,7 @@ const LandingPage = ({ denver }) => {
               <div class="card">
                 <div class="card-body">
                   {
-                    denver ? <div>{denver[0].text}</div>:
+                    denver ? <div><strong>TWEET TEXT:  </strong>{denver[0].text}</div>:
                     <div>Loading Data...</div>
                   }
                 </div>
@@ -59,7 +59,7 @@ const LandingPage = ({ denver }) => {
               <div class="card">
                 <div class="card-body">
                   {
-                    denver ? <div>{denver[1].text}</div>:
+                    denver ? <div><strong>TWEET TEXT:  </strong>{denver[1].text}</div>:
                     <div>Loading Data...</div>
                   }
                 </div>
@@ -69,7 +69,7 @@ const LandingPage = ({ denver }) => {
               <div class="card">
                 <div class="card-body">
                   {
-                    denver ? <div>{denver[2].text}</div>:
+                    denver ? <div><strong>TWEET TEXT:  </strong>{denver[2].text}</div>:
                     <div>Loading Data...</div>
                   }
                 </div>
