@@ -15,7 +15,7 @@ const Search = ({
     console.log('search term from searchbar: ', search);
     submitSearch(search)
     updateDataDisplay(3)
-    // saveSearch(search)
+    saveSearch(search)
   }
 
   // const saveIt = (e) => {

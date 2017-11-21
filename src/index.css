@@ -27,6 +27,18 @@ body, html {
   background-position: center;
   background-size: cover;
   height: 500px;
+  padding-top: 90px;
+}
+
+.hero-text {
+  color: #9aad83;
+  font-size: 50px;
+  font-family: 'Shrikhand', cursive;
+}
+
+.hero-subtext {
+  color: #9aad83;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .brianna {

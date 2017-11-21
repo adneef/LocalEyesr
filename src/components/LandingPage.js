@@ -5,17 +5,21 @@ const LandingPage = () => {
   return (
     <div className="container-fluid">
 
-      <div className="hero-image tex-center">
-        <h3>hellow??</h3>
+      <div className="hero-image">
+        <h1 className="hero-text">Trending Colorado</h1>
+        <h3 className="hero-subtext">Local Trends on Twitter</h3>
       </div>
 
       <div className="container info-section">
         what our app does
       </div>
 
+      <div className="container info-section">
+        pull in some tweets...
+      </div>
+
       <div className="container-fluid about-us info-section">
         <div className="container d-flex justify-content-around">
-
           <div className="card about-us-card">
             <img className="card-img-top brianna" src="" alt=""/>
             <div className="card-block">
@@ -25,7 +29,6 @@ const LandingPage = () => {
               <a href="www.briannagreene.com" class="btn">MY PORTFOLIO</a>
             </div>
           </div>
-
           <div className="card about-us-card">
             <img className="card-img-top danah" src="" alt=""/>
             <div className="card-block">
@@ -35,7 +38,6 @@ const LandingPage = () => {
               <a href="" class="btn">????</a>
             </div>
           </div>
-
           <div className="card about-us-card">
             <img className="card-img-top adam" src="" alt=""/>
             <div className="card-block">
@@ -45,7 +47,6 @@ const LandingPage = () => {
               <a href="" class="btn">????</a>
             </div>
           </div>
-
         </div>
       </div>
 
