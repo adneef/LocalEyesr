@@ -31,14 +31,15 @@ body, html {
 }
 
 .hero-text {
-  color: #9aad83;
-  font-size: 50px;
+  color: #b3b3b3;
+  font-size: 40px;
   font-family: 'Shrikhand', cursive;
 }
 
 .hero-subtext {
-  color: #9aad83;
+  color: #b3b3b3;
   font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
 }
 
 .brianna {
@@ -62,23 +63,59 @@ body, html {
   height: 250px;
 }
 
+.pie-example {
+  background-image: url('./components/data-components/images/top-twitter-trends.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+
+.map-example {
+  background-image: url('./components/data-components/images/map04.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+
+.bubble-example {
+  background-image: url('./components/data-components/images/bubble-holder.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+
 .info-section {
-  height: 700px;
+  height: 600px;
+  padding: 50px;
+}
+
+.tweet-section {
+  height: 500px;
   padding: 20px;
+  background-color: white;
 }
 
 .about-us {
   background-color: #9aad83;
+  height: 700px;
+  padding: 20px;
 }
 
 .about-us-card {
   width: 30%;
-  /*margin-top: 50px;*/
 }
 
 .name-title {
   font-family: 'Shrikhand', cursive;
   font-size: 35px;
+}
+
+.section-title {
+  font-family: 'Shrikhand', cursive;
+  color: #9aad83;
 }
 
 .borderbox {
