@@ -17,7 +17,7 @@ class App extends Component {
     this.state = {
       dataDisplay: 1,
       mapImageIndex: 0,
-      trends: [],
+      trends: []
       // lastSearch: 'Colorado'
     }
   }
@@ -37,19 +37,21 @@ class App extends Component {
     const jsonData = await data.json()
     this.setState({ searchResults: jsonData })
 
-    const res = await fetch(`${API}/users/1`)
-    console.log('res from mount: ', res);
-    const searches = await res.json()
-    const terms = searches.map(search => search.term)
-    console.log('is something broken?');
-    if(searches) {
-      this.setState({
-        loggedIn: true,
-        user: searches[0].id,
-        terms: terms,
-        trends: json
-      })
-    }
+    // const url = document.location.href
+    // const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
+    // console.log(userId)
+    // const res = await fetch(`${API}/users/${userId}`)
+    // const searches = await res.json()
+    // const terms = searches.map(search => search.term)
+    // console.log('terms:', terms);
+    // if(searches) {
+    //   this.setState({
+    //     loggedIn: true,
+    //     user: searches[0].id,
+    //     terms: terms,
+    //     trends: json
+    //   })
+    // }
 
   }
 
@@ -83,8 +85,26 @@ class App extends Component {
   }
 
   handleLogin = async () => {
-    console.log('handling login, this is the route:', API);
-    return await fetch(`${API}/auth/google`)
+    const url = document.location.href
+    const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
+    console.log(userId)
+    const res = await fetch(`${API}/users/${userId}`)
+    const searches = await res.json()
+    const terms = searches.map(search => search.term)
+    console.log('terms:', terms);
+    if(searches) {
+      this.setState({
+        loggedIn: true,
+        user: userId,
+        terms: terms
+      })
+    } else {
+      this.setState({
+        loggedIn: true,
+        user: userId,
+        terms: []
+      })
+    }
   }
 
   handleLogout = async () => {
@@ -123,7 +143,7 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <Header handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedIn={this.state.loggedIn}/>
-        {/* {
+        {
           this.state.loggedIn ?
             <Dashboard
               dataDisplay={this.state.dataDisplay}
@@ -137,8 +157,8 @@ class App extends Component {
               lastSearch={this.state.searchResults}
             /> :
             <LandingPage />
-        } */}
-        <Dashboard
+        }
+        {/* <Dashboard
           dataDisplay={this.state.dataDisplay}
           trends={this.state.trends}
           updateDataDisplay={this.updateDataDisplay}
@@ -148,7 +168,7 @@ class App extends Component {
           saveSearch={this.saveSearch}
           searchResults={this.state.searchResults}
           lastSearch={this.state.lastSearch}
-        />
+        /> */}
         <Footer />
       </div>
     );
