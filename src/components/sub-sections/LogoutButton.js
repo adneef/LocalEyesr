@@ -1,10 +1,11 @@
 import React from 'react'
+const API = `${process.env.REACT_APP_API_URL}/auth/logout`
 
-const LogoutButton = ({handleLogout}) => {
+const LogoutButton = () => {
 
   return(
     <div>
-      <button className="btn" onClick={handleLogout}>LOG OUT</button>
+      <button className="btn"><a href={ API }>LOG OUT</a></button>
     </div>
   )
 

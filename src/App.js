@@ -18,6 +18,7 @@ class App extends Component {
       dataDisplay: 1,
       mapImageIndex: 0,
       trends: [],
+      terms:[],
       lastSearch: 'Colorado'
     }
   }
@@ -43,20 +44,29 @@ class App extends Component {
     const jsonData = await data.json()
     this.setState({ searchResults: jsonData })
 
-    const res = await fetch(`${API}/users/1`)
-    console.log('res from mount: ', res);
-    const searches = await res.json()
-    const terms = searches.map(search => search.term)
-    console.log('is something broken?');
-    if(searches) {
-      this.setState({
-        loggedIn: true,
-        user: searches[0].id,
-        terms: terms,
-        trends: json
+    if(document.location.href === 'http://localhost:3000/2#') {
+      const url = document.location.href
+      console.log(url)
+      const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
+      console.log(userId)
+      const res = await fetch(`${API}/users/${userId}`)
+      const searches = await res.json()
+      const terms = searches.map(search => search.term)
+      console.log('terms:', terms);
+      if(userId) {
+        this.setState({
+          loggedIn: true,
+          user: userId,
+          terms: terms,
+          trends: json
+        })
+      } else {
+        this.setState({
+          loggedIn: false,
+          trends: json
       })
     }
-
+  }
   }
 
   //function to pull out the search term and save it to the db
@@ -86,16 +96,6 @@ class App extends Component {
   // stop animating population map
   componentWillUnmount() {
     clearInterval(this.intervalId);
-  }
-
-  handleLogin = async () => {
-    console.log('handling login, this is the route:', API);
-    return await fetch(`${API}/auth/google`)
-  }
-
-  handleLogout = async () => {
-    console.log('handling logout');
-    return await fetch(`${API}/auth/logout`)
   }
 
   // animate colorado population density map
@@ -128,8 +128,9 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Header handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedIn={this.state.loggedIn}/>
-        {/* {
+        <Header
+          loggedIn={this.state.loggedIn}/>
+        {
           this.state.loggedIn ?
             <Dashboard
               dataDisplay={this.state.dataDisplay}
