@@ -123,7 +123,6 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <Header
-          handleLogin={this.handleLogin}
           loggedIn={this.state.loggedIn}/>
         {
           this.state.loggedIn ?
@@ -136,21 +135,10 @@ class App extends Component {
               searchTerms={this.state.terms}
               saveSearch={ this.saveSearch }
               searchResults={this.state.searchResults}
-              lastSearch={this.state.searchResults}
+              lastSearch={this.state.lastSearch}
             /> :
             <LandingPage />
         }
-        {/* <Dashboard
-          dataDisplay={this.state.dataDisplay}
-          trends={this.state.trends}
-          updateDataDisplay={this.updateDataDisplay}
-          mapImageIndex={this.state.mapImageIndex}
-          submitSearch={this.submitSearch}
-          searchTerms={this.state.terms}
-          saveSearch={this.saveSearch}
-          searchResults={this.state.searchResults}
-          lastSearch={this.state.lastSearch}
-        /> */}
         <Footer />
       </div>
     );
