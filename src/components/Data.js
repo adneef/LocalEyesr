@@ -12,6 +12,8 @@ const Data = ({ dataDisplay,
   mapImageIndex,
   searchResults,
   lastSearch,
+  denver,
+  cosprings
 }) => {
 
   const toggleDropDown = () => {
@@ -52,7 +54,7 @@ const Data = ({ dataDisplay,
         <div className="data-box">
           <div>
             {
-              dataDisplay === 1 ? <Data1 mapImageIndex={mapImageIndex} /> : null
+              dataDisplay === 1 ? <Data1 mapImageIndex={mapImageIndex} denver={denver} cosprings={cosprings} /> : null
             }
           </div>
           <div>

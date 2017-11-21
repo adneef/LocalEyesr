@@ -18,7 +18,7 @@ class App extends Component {
       dataDisplay: 1,
       mapImageIndex: 0,
       trends: [],
-      // lastSearch: 'Colorado'
+      lastSearch: 'Colorado'
     }
   }
 
@@ -26,12 +26,18 @@ class App extends Component {
   currently hard-coded, just needs a return from our backend
   that says what user is signed in.*/
   async componentDidMount() {
+    const denver = await fetch(`${API}/twitter/denver`)
+    const denverdata = await denver.json()
+    this.setState({ denver: denverdata })
+
+    const cosprings = await fetch(`${API}/twitter/springs`)
+    const cospringsdata = await cosprings.json()
+    this.setState({ cosprings: cospringsdata })
+
     setInterval(this.changeMapImage, 1000)
     const response = await fetch(`${API}/twitter/trends`)
     const json = await response.json()
-    console.log('json from trends', json);
     this.setState({ trends: json })
-    console.log('state of trends: ', this.state.trends);
 
     const data = await fetch(`${API}/twitter/related?term=Colorado`)
     const jsonData = await data.json()
@@ -141,6 +147,8 @@ class App extends Component {
         <Dashboard
           dataDisplay={this.state.dataDisplay}
           trends={this.state.trends}
+          denver={this.state.denver}
+          cosprings={this.state.cosprings}
           updateDataDisplay={this.updateDataDisplay}
           mapImageIndex={this.state.mapImageIndex}
           submitSearch={this.submitSearch}
