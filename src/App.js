@@ -8,6 +8,7 @@ import { max } from 'd3-array';
 import { select } from 'd3-selection';
 import * as d3 from "d3";
 const API = `${process.env.REACT_APP_API_URL}`
+const currentURL = `${process.env.REACT_APP_URL_NOW}`
 
 
 class App extends Component {
@@ -23,9 +24,7 @@ class App extends Component {
     }
   }
 
-  /* pulls our current user and their saved searches from db -
-  currently hard-coded, just needs a return from our backend
-  that says what user is signed in.*/
+  /* pulls our current user and their saved searches from db */
   async componentDidMount() {
     setInterval(this.changeMapImage, 1000)
     const response = await fetch(`${API}/twitter/trends`)
@@ -38,10 +37,12 @@ class App extends Component {
     const jsonData = await data.json()
     this.setState({ searchResults: jsonData })
 
-    if(document.location.href === 'http://localhost:3000/2#') {
-      const url = document.location.href
+    console.log('currentURL:', currentURL)
+    const url = document.location.href
+    console.log(url)
+    const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
+    if(document.location.href === `${currentURL}/${userId}#`) {
       console.log(url)
-      const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
       console.log(userId)
       const res = await fetch(`${API}/users/${userId}`)
       const searches = await res.json()
