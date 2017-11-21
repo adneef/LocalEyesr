@@ -23,7 +23,7 @@ const Data1 = ({ mapImageIndex, denver, cosprings }) => {
         {
           denver ?
           <div>
-            <div className="card">
+            <div className="card main-card">
               <div className="card-body">
                 <h4 className="card-title">DENVER: population 682,545</h4>
                 <div className="card">
@@ -52,7 +52,7 @@ const Data1 = ({ mapImageIndex, denver, cosprings }) => {
           cosprings ?
           <div>
 
-            <div className="card">
+            <div className="card main-card">
               <div className="card-body">
                 <h4 className="card-title">Colorado Springs: population 456,568</h4>
                 <div className="card">

@@ -76,9 +76,14 @@ body, html {
 
 .footer {
   background-color: lightgrey;
-  height: 200px;
+  height: 150px;
   color: white;
   padding-top: 20px;
+}
+
+.footer-title {
+  font-family: 'Shrikhand', cursive;
+  font-size: 40px;
 }
 
 .data-title {
@@ -110,11 +115,18 @@ body, html {
 .card {
   margin-top: 30px;
   padding: 20px;
+  color: #282828;
 }
 
 .card-title {
   font-family: 'Open Sans', sans-serif;
-  color: #181818;
+  color: white;
+}
+
+.main-card {
+  background-color: #b3b3b3;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 .color-key-block {
