@@ -43,11 +43,11 @@ const LandingPage = ({ denver }) => {
           <h1 className="section-title">Most Recent Local Tweets</h1>
         </div>
         <div className="container">
-          <div class="card main-card">
-            <h4 class="card-title">Top Tweets from Denver</h4>
-            <div class="card-body">
-              <div class="card">
-                <div class="card-body">
+          <div className="card main-card">
+            <h4 className="card-title">Top Tweets from Denver</h4>
+            <div className="card-body">
+              <div className="card">
+                <div className="card-body">
                   {
                     denver ? <div><strong>TWEET TEXT:  </strong>{denver[0].text}</div>:
                     <div>Loading Data...</div>
@@ -55,9 +55,9 @@ const LandingPage = ({ denver }) => {
                 </div>
               </div>
             </div>
-            <div class="card-body">
-              <div class="card">
-                <div class="card-body">
+            <div className="card-body">
+              <div className="card">
+                <div className="card-body">
                   {
                     denver ? <div><strong>TWEET TEXT:  </strong>{denver[1].text}</div>:
                     <div>Loading Data...</div>
@@ -65,9 +65,9 @@ const LandingPage = ({ denver }) => {
                 </div>
               </div>
             </div>
-            <div class="card-body">
-              <div class="card">
-                <div class="card-body">
+            <div className="card-body">
+              <div className="card">
+                <div className="card-body">
                   {
                     denver ? <div><strong>TWEET TEXT:  </strong>{denver[2].text}</div>:
                     <div>Loading Data...</div>
@@ -90,7 +90,7 @@ const LandingPage = ({ denver }) => {
               <h4 className="name-title">Bri Greene</h4>
               <p className="card-text">Twitter Data Manipulation <br></br> D3 Data Visualization <br></br> Front End Style & Interactivity</p>
               <p className="card-text"><strong>hellobrigreene@gmail.com</strong></p>
-              <a href="http://www.briannagreene.com" class="btn">MY PORTFOLIO</a>
+              <a href="http://www.briannagreene.com" className="btn">MY PORTFOLIO</a>
             </div>
           </div>
           <div className="card about-us-card">
@@ -99,7 +99,7 @@ const LandingPage = ({ denver }) => {
               <h4 className="name-title">Danah Olivetree</h4>
               <p className="card-text">Twitter Data Manipulation <br></br> D3 Data Visualization <br></br> OAuth Implementation</p>
               <p className="card-text"><strong>???@gmail.com</strong></p>
-              <a href="" class="btn">????</a>
+              <a href="" className="btn">????</a>
             </div>
           </div>
           <div className="card about-us-card">
@@ -108,7 +108,7 @@ const LandingPage = ({ denver }) => {
               <h4 className="name-title">Adam Neef</h4>
               <p className="card-text">OAuth Implementation <br></br>Database Structure <br></br>Server Security</p>
               <p className="card-text"><strong>???@gmail.com</strong></p>
-              <a href="" class="btn">????</a>
+              <a href="" className="btn">????</a>
             </div>
           </div>
         </div>
