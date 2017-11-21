@@ -6,7 +6,8 @@ import $ from 'jquery';
 import Barchart from './data-components/Barchart'
 
 
-const Data = ({ dataDisplay,
+const Data = ({
+  dataDisplay,
   trends,
   updateDataDisplay,
   mapImageIndex,
@@ -14,7 +15,8 @@ const Data = ({ dataDisplay,
   lastSearch,
   denver,
   cosprings,
-  boulder }) => {
+  boulder,
+  topTrendTweets }) => {
 
   const toggleDropDown = () => {
     $('#dropdown-container').toggleClass('show')
@@ -55,7 +57,7 @@ const Data = ({ dataDisplay,
           </div>
           <div>
             {
-              dataDisplay === 2 ? <Data2 trends={trends} /> : null
+              dataDisplay === 2 ? <Data2 trends={trends} topTrendTweets={topTrendTweets} /> : null
             }
           </div>
           <div>

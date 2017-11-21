@@ -48,6 +48,13 @@ class App extends Component {
     const jsonData = await data.json()
     this.setState({ searchResults: jsonData })
 
+    // console.log('trend top trend: ', this.state.trends);
+
+    // const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
+    // const json = await res.json()
+    // this.setState({ topTrendTweets: json })
+
+
     if(document.location.href === 'http://localhost:3000/2#') {
       const url = document.location.href
       const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
@@ -143,6 +150,7 @@ class App extends Component {
               denver={this.state.denver}
               cosprings={this.state.cosprings}
               boulder={this.state.boulder}
+              topTrendTweets={this.state.topTrendTweets}
             /> :
             <LandingPage denver={this.state.denver} />
         }

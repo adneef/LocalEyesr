@@ -2,14 +2,18 @@ import React from 'react'
 import Data2Chart from './Data2Chart'
 
 
-const Data2 = ({ trends }) => {
+const Data2 = ({ trends, topTrendTweets }) => {
+  console.log('tweet trends: ', topTrendTweets);
+
+
 
   return (
     <div className="container">
       <div className="text-center">
-        <h1>Colorado Top 8 Twitter Trends</h1>
-        <h4>Sourced from Twitter</h4>
-        <div className="d-flex">
+        <h1 className="section-title-data">Colorado Top 8 Twitter Trends</h1>
+        <h5>Sourced from Twitter</h5>
+        <div className="d-flex padding-top">
+
           <Data2Chart
             data={trends}
           />
@@ -50,13 +54,13 @@ const Data2 = ({ trends }) => {
           </div>
         </div>
 
-        <div>
+        <div className="padding-top">
           {
             // denver ?
             <div>
               <div className="card main-card">
                 <div className="card-body">
-                  <h4 className="card-title">DENVER: population 682,545</h4>
+                  <h4 className="card-title">{trends[0].name}</h4>
                   <div className="card">
                     {/* <p className="card-text"><strong>DATE: </strong> {denver[0].created_at}</p>
                     <p className="card-text"><strong>TWEET: </strong> {denver[0].text}</p>
