@@ -144,7 +144,7 @@ class App extends Component {
             /> :
             <LandingPage />
         } */}
-        <Dashboard
+        {/* <Dashboard
           dataDisplay={this.state.dataDisplay}
           trends={this.state.trends}
           denver={this.state.denver}
@@ -156,7 +156,8 @@ class App extends Component {
           saveSearch={this.saveSearch}
           searchResults={this.state.searchResults}
           lastSearch={this.state.lastSearch}
-        />
+        /> */}
+        <LandingPage />
         <Footer />
       </div>
     );

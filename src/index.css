@@ -22,6 +22,32 @@ body, html {
   color: white;
 }
 
+.hero-image {
+  background-image: url('./components/data-components/images/colorado-hero1.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+}
+
+.info-section {
+  height: 600px;
+  padding: 50px;
+}
+
+.about-us {
+  background-color: #9aad83;
+}
+
+.about-us-card {
+  width: 30%;
+  /*margin-top: 50px;*/
+}
+
+.name-title {
+  font-family: 'Shrikhand', cursive;
+  font-size: 35px;
+}
+
 .borderbox {
   border: black solid 1px;
 }
