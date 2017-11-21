@@ -6,8 +6,21 @@ body, html {
   background-color: #ededed;
 }
 
-a {
+.padding-top {
+  padding-top: 50px;
+}
+
+.padding-bottom {
+  padding-bottom: 50px;
+}
+
+.white {
   color: white;
+}
+
+.white:hover {
+  color: white;
+  text-decoration: none;
 }
 
 .container-fluid {
@@ -23,6 +36,11 @@ a {
 
 .btn {
   background-color: #9aad83;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #b7d197;
   color: white;
 }
 
@@ -114,6 +132,10 @@ a {
   width: 30%;
 }
 
+.email-link {
+  color: #181818;
+}
+
 .name-title {
   font-family: 'Shrikhand', cursive;
   font-size: 35px;
@@ -127,6 +149,11 @@ a {
 .section-title-about {
   font-family: 'Shrikhand', cursive;
   color: #ededed;
+}
+
+.section-title-data {
+  color: #282828;
+  font-family: 'Shrikhand', cursive;
 }
 
 .borderbox {
@@ -206,11 +233,6 @@ a {
   min-height: 500px;
   min-width: 500px;
   max-height: 700px;
-}
-
-.dropdown-toggle {
-  background-color: #b3b3b3;
-  color: black;
 }
 
 .dropdown-item {

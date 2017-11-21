@@ -13,7 +13,8 @@ const Data = ({ dataDisplay,
   searchResults,
   lastSearch,
   denver,
-  cosprings }) => {
+  cosprings,
+  boulder }) => {
 
   const toggleDropDown = () => {
     $('#dropdown-container').toggleClass('show')
@@ -36,7 +37,7 @@ const Data = ({ dataDisplay,
     <div className="container">
       <div className="data-container">
         <div id="dropdown-container" className="dropdown">
-          <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" onClick={toggleDropDown}>
+          <button className="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" onClick={toggleDropDown}>
             CHANGE YOUR DATA DISPLAY:
             <span className="caret"></span>
           </button>
@@ -49,7 +50,7 @@ const Data = ({ dataDisplay,
         <div className="data-box">
           <div>
             {
-              dataDisplay === 1 ? <Data1 mapImageIndex={mapImageIndex} denver={denver} cosprings={cosprings} /> : null
+              dataDisplay === 1 ? <Data1 mapImageIndex={mapImageIndex} denver={denver} cosprings={cosprings} boulder={boulder} /> : null
             }
           </div>
           <div>

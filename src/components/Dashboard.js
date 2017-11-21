@@ -13,7 +13,8 @@ const Dashboard = ({
   searchResults,
   lastSearch,
   denver,
-  cosprings }) => {
+  cosprings,
+  boulder }) => {
 
   return (
     <div>
@@ -28,6 +29,7 @@ const Dashboard = ({
         trends={trends}
         denver={denver}
         cosprings={cosprings}
+        boulder={boulder}
         updateDataDisplay={updateDataDisplay}
         mapImageIndex={mapImageIndex}
         searchResults={searchResults}

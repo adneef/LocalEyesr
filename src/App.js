@@ -35,6 +35,10 @@ class App extends Component {
     const cospringsdata = await cosprings.json()
     this.setState({ cosprings: cospringsdata })
 
+    const boulder = await fetch(`${API}/twitter/boulder`)
+    const boulderdata = await boulder.json()
+    this.setState({ boulder: boulderdata })
+
     setInterval(this.changeMapImage, 1000)
     const response = await fetch(`${API}/twitter/trends`)
     const json = await response.json()
@@ -138,6 +142,7 @@ class App extends Component {
               lastSearch={this.state.lastResults}
               denver={this.state.denver}
               cosprings={this.state.cosprings}
+              boulder={this.state.boulder}
             /> :
             <LandingPage denver={this.state.denver} />
         }
