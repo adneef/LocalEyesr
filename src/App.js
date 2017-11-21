@@ -81,8 +81,8 @@ class App extends Component {
     const json = await res.json()
     this.setState({
       terms: [
-        ...this.state.terms,
-        json
+        json,
+        ...this.state.terms
       ]
     })
   }
