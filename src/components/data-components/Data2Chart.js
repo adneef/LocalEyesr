@@ -3,6 +3,7 @@ import * as d3 from "d3";
 
 
 class Data2Chart extends Component {
+  
   constructor(props) {
     super(props)
     this.createPieChart = this.createPieChart.bind(this)
@@ -13,7 +14,6 @@ class Data2Chart extends Component {
     if (this.props.data) {
       this.createPieChart()
     }
-    console.log('PROPS FROM DATA CHART: ', this.props.data);
   }
 
   componentDidUpdate() {

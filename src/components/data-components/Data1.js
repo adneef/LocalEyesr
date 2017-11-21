@@ -2,7 +2,6 @@ import React from 'react'
 
 
 const Data1 = ({ mapImageIndex, denver, cosprings }) => {
-  console.log('cosprings from data1', cosprings);
 
   const mapImages = [
     './images/map01.png',

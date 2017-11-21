@@ -13,8 +13,7 @@ const Data = ({ dataDisplay,
   searchResults,
   lastSearch,
   denver,
-  cosprings
-}) => {
+  cosprings }) => {
 
   const toggleDropDown = () => {
     $('#dropdown-container').toggleClass('show')
@@ -29,9 +28,6 @@ const Data = ({ dataDisplay,
     }
     if (e.target.id === 'data-3') {
       updateDataDisplay(3)
-    }
-    if (e.target.id === 'data-4') {
-      updateDataDisplay(4)
     }
   }
 
@@ -48,7 +44,6 @@ const Data = ({ dataDisplay,
             <li><a id="data-1" className="dropdown-item" onClick={changeDisplay}>Colorado Population Density Map</a></li>
             <li><a id="data-2" className="dropdown-item" onClick={changeDisplay}>Top Trending Tweets of Colorado</a></li>
             <li><a id="data-3" className="dropdown-item" onClick={changeDisplay}>Related Twitter HashTags</a></li>
-            <li><a id="data-4" className="dropdown-item" onClick={changeDisplay}>Related Twitter Test</a></li>
           </ul>
         </div>
         <div className="data-box">
@@ -65,11 +60,6 @@ const Data = ({ dataDisplay,
           <div>
             {
               dataDisplay === 3 ? <SearchData searchResults={searchResults} lastSearch={lastSearch} /> : null
-            }
-          </div>
-          <div>
-            {
-              dataDisplay === 4 ? <Barchart data={searchResults} lastSearch={lastSearch} /> : null
             }
           </div>
         </div>

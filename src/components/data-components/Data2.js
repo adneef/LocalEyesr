@@ -3,7 +3,6 @@ import Data2Chart from './Data2Chart'
 
 
 const Data2 = ({ trends }) => {
-  console.log('trends from data 2: ', trends);
 
   return (
     <div className="container">

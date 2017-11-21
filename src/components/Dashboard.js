@@ -13,8 +13,7 @@ const Dashboard = ({
   searchResults,
   lastSearch,
   denver,
-  cosprings
-}) => {
+  cosprings }) => {
 
   return (
     <div>

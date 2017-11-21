@@ -1,7 +1,6 @@
 import React from 'react'
 import LoginButton from './sub-sections/LoginButton'
 import LogoutButton from './sub-sections/LogoutButton'
-import DashboardButton from './sub-sections/DashboardButton'
 
 const Header = ({ loggedIn }) => {
 

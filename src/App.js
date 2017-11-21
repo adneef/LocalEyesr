@@ -46,13 +46,10 @@ class App extends Component {
 
     if(document.location.href === 'http://localhost:3000/2#') {
       const url = document.location.href
-      console.log(url)
       const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
-      console.log(userId)
       const res = await fetch(`${API}/users/${userId}`)
       const searches = await res.json()
       const terms = searches.map(search => search.term)
-      console.log('terms:', terms);
       if(userId) {
         this.setState({
           loggedIn: true,
@@ -61,12 +58,12 @@ class App extends Component {
           trends: json
         })
       } else {
-        this.setState({
-          loggedIn: false,
-          trends: json
-      })
+          this.setState({
+            loggedIn: false,
+            trends: json
+          })
+        }
     }
-  }
   }
 
   //function to pull out the search term and save it to the db
@@ -84,7 +81,6 @@ class App extends Component {
         }
     })
     const json = await res.json()
-    console.log(json)
     this.setState({
       terms: [
         ...this.state.terms,
@@ -117,10 +113,8 @@ class App extends Component {
 
   // search form connection to mapImages
   submitSearch = async (value) => {
-    console.log('value being searched ', value)
     const data = await fetch(`${API}/twitter/related?term=${value}`)
     const jsonData = await data.json()
-    console.log('jsonData ', jsonData);
     this.setState({searchResults: jsonData, lastSearch: value})
   }
 
@@ -142,23 +136,11 @@ class App extends Component {
               saveSearch={ this.saveSearch }
               searchResults={this.state.searchResults}
               lastSearch={this.state.lastResults}
+              denver={this.state.denver}
+              cosprings={this.state.cosprings}
             /> :
-            <LandingPage />
-        } */}
-        {/* <Dashboard
-          dataDisplay={this.state.dataDisplay}
-          trends={this.state.trends}
-          denver={this.state.denver}
-          cosprings={this.state.cosprings}
-          updateDataDisplay={this.updateDataDisplay}
-          mapImageIndex={this.state.mapImageIndex}
-          submitSearch={this.submitSearch}
-          searchTerms={this.state.terms}
-          saveSearch={this.saveSearch}
-          searchResults={this.state.searchResults}
-          lastSearch={this.state.lastSearch}
-        /> */}
-        <LandingPage denver={this.state.denver} />
+            <LandingPage denver={this.state.denver} />
+        }
         <Footer />
       </div>
     );
