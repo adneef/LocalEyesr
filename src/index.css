@@ -29,9 +29,30 @@ body, html {
   height: 500px;
 }
 
+.brianna {
+  background-image: url('./components/data-components/images/brigreene.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 250px;
+}
+
+.danah {
+  background-image: url('./components/data-components/images/danaholivetree.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 250px;
+}
+
+.adam {
+  background-image: url('./components/data-components/images/adamneef.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 250px;
+}
+
 .info-section {
-  height: 600px;
-  padding: 50px;
+  height: 700px;
+  padding: 20px;
 }
 
 .about-us {

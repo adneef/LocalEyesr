@@ -14,10 +14,10 @@ const LandingPage = () => {
       </div>
 
       <div className="container-fluid about-us info-section">
-        <div className="container d-flex">
+        <div className="container d-flex justify-content-around">
 
           <div className="card about-us-card">
-            <img className="card-img-top" src="./data-components/images/brigreene.jpg" alt="Card image cap"/>
+            <img className="card-img-top brianna" src="" alt=""/>
             <div className="card-block">
               <h4 className="name-title">Bri Greene</h4>
               <p className="card-text">Twitter Data Manipulation <br></br> D3 Data Visualization <br></br> Front End Style & Interactivity</p>
@@ -27,7 +27,7 @@ const LandingPage = () => {
           </div>
 
           <div className="card about-us-card">
-            <img className="card-img-top" src="../data-components/images/brigreene.jpg" alt="Card image cap"/>
+            <img className="card-img-top danah" src="" alt=""/>
             <div className="card-block">
               <h4 className="name-title">Danah Olivetree</h4>
               <p className="card-text">Twitter Data Manipulation <br></br> D3 Data Visualization <br></br> OAuth Implementation</p>
@@ -37,7 +37,7 @@ const LandingPage = () => {
           </div>
 
           <div className="card about-us-card">
-            <img className="card-img-top" src="../data-components/images/brigreene.jpg" alt="Card image cap"/>
+            <img className="card-img-top adam" src="" alt=""/>
             <div className="card-block">
               <h4 className="name-title">Adam Neef</h4>
               <p className="card-text">OAuth Implementation <br></br>Datadate Structure <br></br>Server Security</p>
