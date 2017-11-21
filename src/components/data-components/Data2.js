@@ -2,16 +2,15 @@ import React from 'react'
 import Data2Chart from './Data2Chart'
 
 
-const Data2 = ({ trends, topTrendTweets }) => {
-  console.log('tweet trends: ', topTrendTweets);
-
-
+const Data2 = ({ trends, topTrendTweets, topTrendTweets2 }) => {
 
   return (
     <div className="container">
-      <div className="text-center">
-        <h1 className="section-title-data">Colorado Top 8 Twitter Trends</h1>
-        <h5>Sourced from Twitter</h5>
+      <div className="">
+        <div className="text-center">
+          <h1 className="section-title-data">Colorado Top 8 Twitter Trends</h1>
+          <h5>Sourced from Twitter</h5>
+        </div>
         <div className="d-flex padding-top">
 
           <Data2Chart
@@ -54,32 +53,55 @@ const Data2 = ({ trends, topTrendTweets }) => {
           </div>
         </div>
 
-        <div className="padding-top">
+        <div className="">
           {
-            // denver ?
+            topTrendTweets ?
             <div>
               <div className="card main-card">
                 <div className="card-body">
                   <h4 className="card-title">{trends[0].name}</h4>
                   <div className="card">
-                    {/* <p className="card-text"><strong>DATE: </strong> {denver[0].created_at}</p>
-                    <p className="card-text"><strong>TWEET: </strong> {denver[0].text}</p>
-                    <p className="card-text"><strong>HASHTAGS: </strong> {denver[0].hashtags}</p> */}
+                    <p className="card-text"><strong>TWEET: </strong> {topTrendTweets[0].text}</p>
+                    <p className="card-text"><strong>HASHTAGS: </strong> {topTrendTweets[0].hashtags}</p>
                   </div>
                   <div className="card">
-                    {/* <p className="card-text"><strong>DATE: </strong> {denver[1].created_at}</p>
-                    <p className="card-text"><strong>TWEET: </strong> {denver[1].text}</p>
-                    <p className="card-text"><strong>HASHTAGS: </strong> {denver[1].hashtags}</p> */}
+                    <p className="card-text"><strong>TWEET: </strong> {topTrendTweets[1].text}</p>
+                    <p className="card-text"><strong>HASHTAGS: </strong> {topTrendTweets[1].hashtags}</p>
                   </div>
                   <div className="card">
-                    {/* <p className="card-text"><strong>DATE: </strong> {denver[3].created_at}</p>
-                    <p className="card-text"><strong>TWEET: </strong> {denver[3].text}</p>
-                    <p className="card-text"><strong>HASHTAGS: </strong> {denver[3].hashtags}</p> */}
+                    <p className="card-text"><strong>TWEET: </strong> {topTrendTweets[2].text}</p>
+                    <p className="card-text"><strong>HASHTAGS: </strong> {topTrendTweets[2].hashtags}</p>
                   </div>
                 </div>
               </div>
             </div>
-            // : <div>Loading</div>
+            : <div>Loading</div>
+          }
+        </div>
+
+        <div className="">
+          {
+            topTrendTweets2 ?
+            <div>
+              <div className="card main-card">
+                <div className="card-body">
+                  <h4 className="card-title">{trends[1].name}</h4>
+                  <div className="card">
+                    <p className="card-text"><strong>TWEET: </strong> {topTrendTweets2[0].text}</p>
+                    <p className="card-text"><strong>HASHTAGS: </strong> {topTrendTweets2[0].hashtags}</p>
+                  </div>
+                  <div className="card">
+                    <p className="card-text"><strong>TWEET: </strong> {topTrendTweets2[1].text}</p>
+                    <p className="card-text"><strong>HASHTAGS: </strong> {topTrendTweets2[1].hashtags}</p>
+                  </div>
+                  <div className="card">
+                    <p className="card-text"><strong>TWEET: </strong> {topTrendTweets2[2].text}</p>
+                    <p className="card-text"><strong>HASHTAGS: </strong> {topTrendTweets2[2].hashtags}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            : <div>Loading</div>
           }
         </div>
 

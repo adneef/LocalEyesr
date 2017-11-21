@@ -3,10 +3,10 @@ import Header from './components/Header'
 import Dashboard from './components/Dashboard'
 import LandingPage from './components/LandingPage'
 import Footer from './components/Footer'
-import { scaleLinear } from 'd3-scale';
-import { max } from 'd3-array';
-import { select } from 'd3-selection';
-import * as d3 from "d3";
+// import { scaleLinear } from 'd3-scale';
+// import { max } from 'd3-array';
+// import { select } from 'd3-selection';
+// import * as d3 from "d3";
 const API = `${process.env.REACT_APP_API_URL}`
 
 
@@ -48,12 +48,13 @@ class App extends Component {
     const jsonData = await data.json()
     this.setState({ searchResults: jsonData })
 
-    // console.log('trend top trend: ', this.state.trends);
+    const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
+    const trendJson = await res.json()
+    this.setState({ topTrendTweets: trendJson })
 
-    // const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
-    // const json = await res.json()
-    // this.setState({ topTrendTweets: json })
-
+    const res2 = await fetch(`${API}/twitter/tweets?term=${this.state.trends[1].name}`)
+    const trendJson2 = await res.json()
+    this.setState({ topTrendTweets2: trendJson2 })
 
     if(document.location.href === 'http://localhost:3000/2#') {
       const url = document.location.href
@@ -107,7 +108,6 @@ class App extends Component {
 
   // animate colorado population density map
   changeMapImage = () => {
-    const mapListLength = 4
     let nextImageIndex = this.state.mapImageIndex + 1
     if (this.state.mapImageIndex < 3) {
       this.setState({ mapImageIndex: nextImageIndex })
@@ -151,6 +151,7 @@ class App extends Component {
               cosprings={this.state.cosprings}
               boulder={this.state.boulder}
               topTrendTweets={this.state.topTrendTweets}
+              topTrendTweets2={this.state.topTrendTweets2}
             /> :
             <LandingPage denver={this.state.denver} />
         }

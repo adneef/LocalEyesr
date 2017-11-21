@@ -3,8 +3,6 @@ import Data1 from './data-components/Data1'
 import Data2 from './data-components/Data2'
 import SearchData from './data-components/SearchData'
 import $ from 'jquery';
-import Barchart from './data-components/Barchart'
-
 
 const Data = ({
   dataDisplay,
@@ -57,7 +55,7 @@ const Data = ({
           </div>
           <div>
             {
-              dataDisplay === 2 ? <Data2 trends={trends} topTrendTweets={topTrendTweets} /> : null
+              dataDisplay === 2 ? <Data2 trends={trends} topTrendTweets={topTrendTweets} topTrendTweets2={topTrendTweets2} /> : null
             }
           </div>
           <div>

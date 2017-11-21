@@ -15,7 +15,8 @@ const Dashboard = ({
   denver,
   cosprings,
   boulder,
-  topTrendTweets }) => {
+  topTrendTweets,
+  topTrendTweets2 }) => {
 
   return (
     <div>
@@ -36,6 +37,7 @@ const Dashboard = ({
         searchResults={searchResults}
         lastSearch={lastSearch}
         topTrendTweets={topTrendTweets}
+        topTrendTweets2={topTrendTweets2}
       />
     </div>
   )
