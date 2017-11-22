@@ -3,10 +3,6 @@ import Header from './components/Header'
 import Dashboard from './components/Dashboard'
 import LandingPage from './components/LandingPage'
 import Footer from './components/Footer'
-// import { scaleLinear } from 'd3-scale';
-// import { max } from 'd3-array';
-// import { select } from 'd3-selection';
-// import * as d3 from "d3";
 const API = `${process.env.REACT_APP_API_URL}`
 const currentURL = `${process.env.REACT_APP_URL_NOW}`
 
@@ -30,14 +26,6 @@ class App extends Component {
     const denverdata = await denver.json()
     this.setState({ denver: denverdata })
 
-    const cosprings = await fetch(`${API}/twitter/springs`)
-    const cospringsdata = await cosprings.json()
-    this.setState({ cosprings: cospringsdata })
-
-    const boulder = await fetch(`${API}/twitter/boulder`)
-    const boulderdata = await boulder.json()
-    this.setState({ boulder: boulderdata })
-
     setInterval(this.changeMapImage, 1000)
     const response = await fetch(`${API}/twitter/trends`)
     const json = await response.json()
@@ -46,10 +34,6 @@ class App extends Component {
     // const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
     // const trendJson = await res.json()
     // this.setState({ topTrendTweets: trendJson })
-    //
-    // const res2 = await fetch(`${API}/twitter/tweets?term=${this.state.trends[1].name}`)
-    // const trendJson2 = await res2.json()
-    // this.setState({ topTrendTweets2: trendJson2 })
 
     const data = await fetch(`${API}/twitter/related?term=Colorado`)
     const jsonData = await data.json()
@@ -62,6 +46,7 @@ class App extends Component {
       const searches = await res.json()
       const terms = searches.map(search => search.term)
       if(userId) {
+        console.log('userId: ', userId);
         this.setState({
           loggedIn: true,
           user: userId,
@@ -75,7 +60,6 @@ class App extends Component {
           })
         }
     }
-    console.log('LOGGIN IN STATUS: ', this.state.loggedIn);
   }
 
   //function to pull out the search term and save it to the db
@@ -124,7 +108,6 @@ class App extends Component {
 
   // search form connection to mapImages
   submitSearch = async (value) => {
-    console.log(value)
     this.setState({ lastSearch: value })
     const data = await fetch(`${API}/twitter/related?term=${value}`)
     const jsonData = await data.json()

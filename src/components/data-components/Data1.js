@@ -45,29 +45,8 @@ const Data1 = ({ mapImageIndex, denver, cosprings, boulder }) => {
           : <div>Loading</div>
         }
       </div>
-      <div>
-        {
-          cosprings ?
-          <div>
-            <div className="card main-card">
-              <div className="card-body">
-                <h4 className="card-title">COLORADO SPRINGS<br></br>population 456,568</h4>
-                <div className="card">
-                  <p className="card-text"><strong>TWEET: </strong> {cosprings[0].text}</p>
-                  <p className="card-text"><strong>HASHTAGS: </strong> {cosprings[0].hashtags}</p>
-                </div>
-                <div className="card">
-                  <p className="card-text"><strong>TWEET: </strong> {cosprings[2].text}</p>
-                  <p className="card-text"><strong>HASHTAGS: </strong> {cosprings[2].hashtags}</p>
-                </div>
-              </div>
-            </div>
 
-          </div>
-          : <div>Loading</div>
-        }
-      </div>
-      <div>
+      {/* <div>
         {
           boulder ?
           <div>
@@ -87,7 +66,7 @@ const Data1 = ({ mapImageIndex, denver, cosprings, boulder }) => {
           </div>
           : <div>Loading</div>
         }
-      </div>
+      </div> */}
 
     </div>
   )
