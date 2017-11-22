@@ -54,6 +54,7 @@ class App extends Component {
     const data = await fetch(`${API}/twitter/related?term=Colorado`)
     const jsonData = await data.json()
     this.setState({ searchResults: jsonData })
+
     const url = document.location.href
     const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
     if(document.location.href === `${currentURL}/${userId}#`) {
@@ -74,6 +75,7 @@ class App extends Component {
           })
         }
     }
+    console.log('LOGGIN IN STATUS: ', this.state.loggedIn);
   }
 
   //function to pull out the search term and save it to the db
