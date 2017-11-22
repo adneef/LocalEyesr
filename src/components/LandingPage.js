@@ -42,7 +42,7 @@ const LandingPage = ({ denver }) => {
         <div className="container text-center">
           <h1 className="section-title">Most Recent Local Tweets</h1>
         </div>
-        {/* <div className="container">
+        <div className="container">
           <div className="card main-card">
             <h4 className="card-title">Top Tweets from Denver</h4>
             <div className="card-body">
@@ -76,7 +76,7 @@ const LandingPage = ({ denver }) => {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
 
       <div className="container-fluid about-us">
