@@ -12,11 +12,15 @@ const Toolbar = ({
     <div className="container-fluid toolbar">
       <div className="container">
         <Searchbar
-          submitSearch={submitSearch}
-          saveSearch={saveSearch}
-          updateDataDisplay={updateDataDisplay}
+          submitSearch={ submitSearch }
+          saveSearch={ saveSearch }
+          updateDataDisplay={ updateDataDisplay }
         />
-        <RecentButtonsBar searchTerms={ searchTerms } />
+        <RecentButtonsBar
+          searchTerms={ searchTerms }
+          submitSearch={ submitSearch }
+          updateDataDisplay={ updateDataDisplay }
+      />
       </div>
     </div>
   )

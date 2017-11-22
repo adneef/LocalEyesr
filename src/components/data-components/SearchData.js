@@ -6,7 +6,7 @@ const SearchData = ({ searchResults, lastSearch, }) => {
   return (
     <div className="container">
       <div className="text-center">
-        <h1>Related Hashtags to: {lastSearch ? lastSearch : 'Colorado'}</h1>
+        <h1>Related Hashtags to: {lastSearch}</h1>
         <h4>Sourced from Twitter</h4>
         <div className="data-image">
           {

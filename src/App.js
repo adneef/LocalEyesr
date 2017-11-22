@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 // import { select } from 'd3-selection';
 // import * as d3 from "d3";
 const API = `${process.env.REACT_APP_API_URL}`
+const currentURL = `${process.env.REACT_APP_URL_NOW}`
 
 
 class App extends Component {
@@ -23,9 +24,7 @@ class App extends Component {
     }
   }
 
-  /* pulls our current user and their saved searches from db -
-  currently hard-coded, just needs a return from our backend
-  that says what user is signed in.*/
+  /* pulls our current user and their saved searches from db */
   async componentDidMount() {
     const denver = await fetch(`${API}/twitter/denver`)
     const denverdata = await denver.json()
@@ -44,10 +43,6 @@ class App extends Component {
     const json = await response.json()
     this.setState({ trends: json })
 
-    const data = await fetch(`${API}/twitter/related?term=Colorado`)
-    const jsonData = await data.json()
-    this.setState({ searchResults: jsonData })
-
     // const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
     // const trendJson = await res.json()
     // this.setState({ topTrendTweets: trendJson })
@@ -56,9 +51,12 @@ class App extends Component {
     // const trendJson2 = await res2.json()
     // this.setState({ topTrendTweets2: trendJson2 })
 
-    if(document.location.href === 'http://localhost:3000/2#') {
-      const url = document.location.href
-      const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
+    const data = await fetch(`${API}/twitter/related?term=Colorado`)
+    const jsonData = await data.json()
+    this.setState({ searchResults: jsonData })
+    const url = document.location.href
+    const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
+    if(document.location.href === `${currentURL}/${userId}#`) {
       const res = await fetch(`${API}/users/${userId}`)
       const searches = await res.json()
       const terms = searches.map(search => search.term)
@@ -95,8 +93,8 @@ class App extends Component {
     const json = await res.json()
     this.setState({
       terms: [
-        ...this.state.terms,
-        json
+        json,
+        ...this.state.terms
       ]
     })
   }
@@ -124,9 +122,11 @@ class App extends Component {
 
   // search form connection to mapImages
   submitSearch = async (value) => {
+    console.log(value)
+    this.setState({ lastSearch: value })
     const data = await fetch(`${API}/twitter/related?term=${value}`)
     const jsonData = await data.json()
-    this.setState({searchResults: jsonData, lastSearch: value})
+    this.setState({searchResults: jsonData})
   }
 
 
@@ -146,7 +146,7 @@ class App extends Component {
               searchTerms={this.state.terms}
               saveSearch={ this.saveSearch }
               searchResults={this.state.searchResults}
-              lastSearch={this.state.lastResults}
+              lastSearch={this.state.lastSearch}
               denver={this.state.denver}
               cosprings={this.state.cosprings}
               boulder={this.state.boulder}

@@ -89,7 +89,11 @@ const LandingPage = ({ denver }) => {
             <div className="card-block">
               <h4 className="name-title">Bri Greene</h4>
               <p className="card-text">Twitter Data Manipulation <br></br> D3 Data Visualization <br></br> Front End Style & Interactivity</p>
+<<<<<<< HEAD
               <p className="card-text"><a className="email-link" href="mailto:hellobrigreene@gmail.com"><strong>hellobrigreene@gmail.com</strong></a></p>
+=======
+              <p className="card-text"><strong>hellobrigreene@gmail.com</strong></p>
+>>>>>>> 0530dd69c82d71f1cf4c5b8f6ea86224a26a0f8a
               <a href="http://www.briannagreene.com" className="btn">MY PORTFOLIO</a>
             </div>
           </div>
