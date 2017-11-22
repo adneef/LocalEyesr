@@ -241,6 +241,10 @@ body, html {
   font-weight: bold;
 }
 
+.data3-container {
+  height: 1000px;
+}
+
 .card {
   margin-top: 30px;
   padding: 20px;
