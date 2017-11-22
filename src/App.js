@@ -32,9 +32,13 @@ class App extends Component {
     if(document.location.href === `${currentURL}/${userId}#`) {
       console.log('yes');
       const res = await fetch(`${API}/users/${userId}`)
-      const searches = await res[0].json()
-      // console.log('json: ', json);
+      console.log('res', res);
+      // const searches = await res[0].json()
+      const searches = []
+
       const terms = searches.map(search => search.term)
+      console.log('terms', terms);
+      
       if(userId) {
         console.log('userId: ', userId);
         this.setState({
