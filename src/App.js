@@ -32,9 +32,9 @@ class App extends Component {
     const json = await response.json()
     this.setState({ trends: json })
 
-    const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
-    const trendJson = await res.json()
-    this.setState({ topTrendTweets: trendJson })
+    // const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
+    // const trendJson = await res.json()
+    // this.setState({ topTrendTweets: trendJson })
 
     const data = await fetch(`${API}/twitter/related?term=Colorado`)
     const jsonData = await data.json()
@@ -42,6 +42,8 @@ class App extends Component {
 
     const url = document.location.href
     const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
+    console.log(url);
+    console.log(userId);
     if(document.location.href === `${currentURL}/${userId}#`) {
       const res = await fetch(`${API}/users/${userId}`)
       const searches = await res.json()
