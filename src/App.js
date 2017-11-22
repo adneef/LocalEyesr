@@ -22,31 +22,18 @@ class App extends Component {
 
   /* pulls our current user and their saved searches from db */
   async componentDidMount() {
-    const denver = await fetch(`${API}/twitter/denver`)
-    const denverdata = await denver.json()
-    this.setState({ denver: denverdata })
-
     setInterval(this.changeMapImage, 1000)
-
-    const response = await fetch(`${API}/twitter/trends`)
-    const json = await response.json()
-    this.setState({ trends: json })
-
-    // const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
-    // const trendJson = await res.json()
-    // this.setState({ topTrendTweets: trendJson })
-
-    const data = await fetch(`${API}/twitter/related?term=Colorado`)
-    const jsonData = await data.json()
-    this.setState({ searchResults: jsonData })
 
     const url = document.location.href
     const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
-    console.log(url);
-    console.log(userId);
+    console.log('url: ', url);
+    console.log('userId: ', userId);
+    console.log('document: ', document.location.href);
     if(document.location.href === `${currentURL}/${userId}#`) {
+      console.log('yes');
       const res = await fetch(`${API}/users/${userId}`)
       const searches = await res.json()
+      console.log('json: ', json);
       const terms = searches.map(search => search.term)
       if(userId) {
         console.log('userId: ', userId);
@@ -64,6 +51,23 @@ class App extends Component {
         }
     }
     console.log('loggin status: ', this.state.loggedIn);
+
+    const denver = await fetch(`${API}/twitter/denver`)
+    const denverdata = await denver.json()
+    this.setState({ denver: denverdata })
+
+    const response = await fetch(`${API}/twitter/trends`)
+    const json = await response.json()
+    this.setState({ trends: json })
+
+    const data = await fetch(`${API}/twitter/related?term=Colorado`)
+    const jsonData = await data.json()
+    this.setState({ searchResults: jsonData })
+
+    // const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
+    // const trendJson = await res.json()
+    // this.setState({ topTrendTweets: trendJson })
+
   }
 
   //function to pull out the search term and save it to the db
