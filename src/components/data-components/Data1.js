@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const Data1 = ({ mapImageIndex, denver }) => {
-
+  
   const mapImages = [
     './images/map01.png',
     './images/map02.png',
@@ -40,8 +40,8 @@ const Data1 = ({ mapImageIndex, denver }) => {
                   <p className="card-text"><strong>HASHTAGS: </strong> {denver[1].hashtags}</p>
                 </div>
                 <div className="card">
-                  <p className="card-text"><strong>TWEET: </strong> {denver[3].text}</p>
-                  <p className="card-text"><strong>HASHTAGS: </strong> {denver[3].hashtags}</p>
+                  <p className="card-text"><strong>TWEET: </strong> {denver[2].text}</p>
+                  <p className="card-text"><strong>HASHTAGS: </strong> {denver[2].hashtags}</p>
                 </div>
               </div>
             </div>
