@@ -2,7 +2,7 @@ import React from 'react'
 import Data2Chart from './Data2Chart'
 
 
-const Data2 = ({ trends, topTrendTweets, topTrendTweets2 }) => {
+const Data2 = ({ trends, topTrendTweets }) => {
 
   return (
     <div className="container">
@@ -53,7 +53,7 @@ const Data2 = ({ trends, topTrendTweets, topTrendTweets2 }) => {
           </div>
         </div>
 
-        {/* <div className="">
+        <div className="">
           {
             topTrendTweets ?
             <div>
@@ -77,7 +77,7 @@ const Data2 = ({ trends, topTrendTweets, topTrendTweets2 }) => {
             </div>
             : <div>Loading</div>
           }
-        </div> */}
+        </div>
 
         {/* <div className="">
           {

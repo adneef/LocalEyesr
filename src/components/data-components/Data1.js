@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const Data1 = ({ mapImageIndex, denver, cosprings, boulder }) => {
+const Data1 = ({ mapImageIndex, denver }) => {
 
   const mapImages = [
     './images/map01.png',
@@ -36,8 +36,12 @@ const Data1 = ({ mapImageIndex, denver, cosprings, boulder }) => {
                   <p className="card-text"><strong>HASHTAGS: </strong> {denver[0].hashtags}</p>
                 </div>
                 <div className="card">
-                  <p className="card-text"><strong>TWEET: </strong> {denver[2].text}</p>
-                  <p className="card-text"><strong>HASHTAGS: </strong> {denver[2].hashtags}</p>
+                  <p className="card-text"><strong>TWEET: </strong> {denver[1].text}</p>
+                  <p className="card-text"><strong>HASHTAGS: </strong> {denver[1].hashtags}</p>
+                </div>
+                <div className="card">
+                  <p className="card-text"><strong>TWEET: </strong> {denver[3].text}</p>
+                  <p className="card-text"><strong>HASHTAGS: </strong> {denver[3].hashtags}</p>
                 </div>
               </div>
             </div>
@@ -45,29 +49,6 @@ const Data1 = ({ mapImageIndex, denver, cosprings, boulder }) => {
           : <div>Loading</div>
         }
       </div>
-
-      {/* <div>
-        {
-          boulder ?
-          <div>
-            <div className="card main-card">
-              <div className="card-body">
-                <h4 className="card-title">BOULDER<br></br>population 108,090</h4>
-                <div className="card">
-                  <p className="card-text"><strong>TWEET: </strong> {boulder[0].text}</p>
-                  <p className="card-text"><strong>HASHTAGS: </strong> {boulder[0].hashtags}</p>
-                </div>
-                <div className="card">
-                  <p className="card-text"><strong>TWEET: </strong> {boulder[2].text}</p>
-                  <p className="card-text"><strong>HASHTAGS: </strong> {boulder[2].hashtags}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          : <div>Loading</div>
-        }
-      </div> */}
-
     </div>
   )
 

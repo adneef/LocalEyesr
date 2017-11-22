@@ -12,10 +12,7 @@ const Data = ({
   searchResults,
   lastSearch,
   denver,
-  cosprings,
-  boulder,
-  topTrendTweets,
-  topTrendTweets2 }) => {
+  topTrendTweets }) => {
 
   const toggleDropDown = () => {
     $('#dropdown-container').toggleClass('show')
@@ -51,12 +48,12 @@ const Data = ({
         <div className="data-box">
           <div>
             {
-              dataDisplay === 1 ? <Data1 mapImageIndex={mapImageIndex} denver={denver} cosprings={cosprings} boulder={boulder} /> : null
+              dataDisplay === 1 ? <Data1 mapImageIndex={mapImageIndex} denver={denver} /> : null
             }
           </div>
           <div>
             {
-              dataDisplay === 2 ? <Data2 trends={trends} topTrendTweets={topTrendTweets} topTrendTweets2={topTrendTweets2} /> : null
+              dataDisplay === 2 ? <Data2 trends={trends} topTrendTweets={topTrendTweets} /> : null
             }
           </div>
           <div>
