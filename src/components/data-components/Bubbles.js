@@ -69,11 +69,11 @@ class Bubbles extends Component {
       });
 
     node.append("text")
+      .text(function(d) {return d.data.hash})
+      .style("font-size", function(d) { return Math.min(2 * d.r, (2 * d.r - 8) / this.getComputedTextLength() * 16) + "px"; })
       .attr("dy", ".3em")
       .style("text-anchor", "middle")
-      .text(function(d) {
-        return d.data.hash;
-      });
+
   }
 
   render() {
