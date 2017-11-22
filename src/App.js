@@ -61,6 +61,7 @@ class App extends Component {
           })
         }
     }
+    console.log('loggin status: ', this.state.loggedIn);
   }
 
   //function to pull out the search term and save it to the db
