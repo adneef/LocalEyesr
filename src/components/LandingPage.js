@@ -107,7 +107,7 @@ const LandingPage = ({ denver }) => {
             <div className="card-block">
               <h4 className="name-title">Adam Neef</h4>
               <p className="card-text">OAuth Implementation <br></br>Database Structure <br></br>Server Security</p>
-              <p className="card-text"><a className="email-link" href="mailto:aneef@gmail.com"><strong>aneef@gmail.com</strong></a></p>
+              <p className="card-text"><a className="email-link" href="mailto:adneef@gmail.com"><strong>adneef@gmail.com</strong></a></p>
               <a href="https://github.com/adneef" className="btn">GIT HUB</a>
             </div>
           </div>
