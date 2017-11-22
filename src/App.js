@@ -27,13 +27,14 @@ class App extends Component {
     this.setState({ denver: denverdata })
 
     setInterval(this.changeMapImage, 1000)
+
     const response = await fetch(`${API}/twitter/trends`)
     const json = await response.json()
     this.setState({ trends: json })
 
-    const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
-    const trendJson = await res.json()
-    this.setState({ topTrendTweets: trendJson })
+    // const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
+    // const trendJson = await res.json()
+    // this.setState({ topTrendTweets: trendJson })
 
     const data = await fetch(`${API}/twitter/related?term=Colorado`)
     const jsonData = await data.json()

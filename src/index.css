@@ -220,6 +220,10 @@ body, html {
   font-size: 40px;
 }
 
+.data3-box {
+  height: 100px;
+}
+
 .data-title {
  font-family: 'Open Sans', sans-serif;
  color: #181818;
