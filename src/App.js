@@ -26,7 +26,7 @@ class App extends Component {
 
     const url = document.location.href
     // user id doen't exist on page load and needs to go through oauth first
-    const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
+    // const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
     const userId = 2
     console.log('url: ', url);
     console.log('userId: ', userId);
