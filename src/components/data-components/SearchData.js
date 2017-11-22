@@ -1,5 +1,5 @@
 import React from 'react'
-import Barchart from './Barchart'
+import Bubbles from './Bubbles'
 
 const SearchData = ({ searchResults, lastSearch, }) => {
 
@@ -12,9 +12,9 @@ const SearchData = ({ searchResults, lastSearch, }) => {
           {
             searchResults ?
             <div>
-              <Barchart data={searchResults} />
+              <Bubbles data={searchResults} />
             </div>
-            : <div>Loading</div>
+            : <div>Loading...</div>
           }
         </div>
       </div>
