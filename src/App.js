@@ -52,17 +52,17 @@ class App extends Component {
     }
     console.log('loggin status: ', this.state.loggedIn);
 
-    // const denver = await fetch(`${API}/twitter/denver`)
-    // const denverdata = await denver.json()
-    // this.setState({ denver: denverdata })
-    //
-    // const response = await fetch(`${API}/twitter/trends`)
-    // const json = await response.json()
-    // this.setState({ trends: json })
-    //
-    // const data = await fetch(`${API}/twitter/related?term=Colorado`)
-    // const jsonData = await data.json()
-    // this.setState({ searchResults: jsonData })
+    const denver = await fetch(`${API}/twitter/denver`)
+    const denverdata = await denver.json()
+    this.setState({ denver: denverdata })
+
+    const response = await fetch(`${API}/twitter/trends`)
+    const json = await response.json()
+    this.setState({ trends: json })
+
+    const data = await fetch(`${API}/twitter/related?term=Colorado`)
+    const jsonData = await data.json()
+    this.setState({ searchResults: jsonData })
 
     // const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
     // const trendJson = await res.json()

@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const Data1 = ({ mapImageIndex, denver }) => {
-  
+
   const mapImages = [
     './images/map01.png',
     './images/map02.png',
@@ -24,7 +24,7 @@ const Data1 = ({ mapImageIndex, denver }) => {
         <h5>Sourced from Twitter</h5>
       </div>
 
-      <div>
+      {/* <div>
         {
           denver ?
           <div>
@@ -48,7 +48,8 @@ const Data1 = ({ mapImageIndex, denver }) => {
           </div>
           : <div>Loading</div>
         }
-      </div>
+      </div> */}
+
     </div>
   )
 
