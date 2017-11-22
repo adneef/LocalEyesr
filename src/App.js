@@ -33,7 +33,7 @@ class App extends Component {
       console.log('yes');
       const res = await fetch(`${API}/users/${userId}`)
       const searches = await res.json()
-      console.log('json: ', json);
+      // console.log('json: ', json);
       const terms = searches.map(search => search.term)
       if(userId) {
         console.log('userId: ', userId);
@@ -41,12 +41,12 @@ class App extends Component {
           loggedIn: true,
           user: userId,
           terms: terms,
-          trends: json
+          // trends: json
         })
       } else {
           this.setState({
             loggedIn: false,
-            trends: json
+            // trends: json
           })
         }
     }
