@@ -1,5 +1,5 @@
 import React from 'react'
-const API = `${process.env.REACT_APP_URL_NOW}/2#`
+const API = `${process.env.REACT_APP_API_URL}/auth/google`
 
 const LoginButton = () => {
 
