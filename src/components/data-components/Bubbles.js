@@ -31,13 +31,13 @@ class Bubbles extends Component {
     var dataset = {children: this.props.data}
     var bubble = d3.pack(dataset)
       // .sort(null)
-      .size([960, 960])
+      .size([700, 700])
       .padding(1.5);
 
     var svg = d3.select(".bubbles")
         .append("svg")
-        .attr("width", 960)
-        .attr("height", 960)
+        .attr("width", 700)
+        .attr("height", 700)
         .attr("class", "svgbubble");
 
     var nodes = d3.hierarchy(dataset)
