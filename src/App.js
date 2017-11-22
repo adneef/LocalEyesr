@@ -25,7 +25,9 @@ class App extends Component {
     setInterval(this.changeMapImage, 1000)
 
     const url = document.location.href
+    // user id doen't exist on page load and needs to go through oauth first
     const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
+    const userId = 2
     console.log('url: ', url);
     console.log('userId: ', userId);
     console.log('document: ', document.location.href);
@@ -38,7 +40,7 @@ class App extends Component {
 
       const terms = searches.map(search => search.term)
       console.log('terms', terms);
-      
+
       if(userId) {
         console.log('userId: ', userId);
         this.setState({
