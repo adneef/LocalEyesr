@@ -53,7 +53,7 @@ const Data2 = ({ trends, topTrendTweets }) => {
           </div>
         </div>
 
-        {/* <div className="">
+        <div className="">
           {
             topTrendTweets ?
             <div>
@@ -77,33 +77,7 @@ const Data2 = ({ trends, topTrendTweets }) => {
             </div>
             : <div>Loading</div>
           }
-        </div> */}
-
-        {/* <div className="">
-          {
-            topTrendTweets2 ?
-            <div>
-              <div className="card main-card">
-                <div className="card-body">
-                  <h4 className="card-title">{trends[1].name}</h4>
-                  <div className="card">
-                    <p className="card-text"><strong>TWEET: </strong> {topTrendTweets2[0].text}</p>
-                    <p className="card-text"><strong>HASHTAGS: </strong> {topTrendTweets2[0].hashtags}</p>
-                  </div>
-                  <div className="card">
-                    <p className="card-text"><strong>TWEET: </strong> {topTrendTweets2[1].text}</p>
-                    <p className="card-text"><strong>HASHTAGS: </strong> {topTrendTweets2[1].hashtags}</p>
-                  </div>
-                  <div className="card">
-                    <p className="card-text"><strong>TWEET: </strong> {topTrendTweets2[2].text}</p>
-                    <p className="card-text"><strong>HASHTAGS: </strong> {topTrendTweets2[2].hashtags}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            : <div>Loading</div>
-          }
-        </div> */}
+        </div>
 
       </div>
     </div>

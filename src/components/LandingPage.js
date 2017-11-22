@@ -42,7 +42,7 @@ const LandingPage = ({ denver }) => {
         <div className="container text-center">
           <h1 className="section-title">Most Recent Local Tweets</h1>
         </div>
-        {/* <div className="container">
+        <div className="container">
           <div className="card main-card">
             <h4 className="card-title">Top Tweets from Denver</h4>
             <div className="card-body">
@@ -76,7 +76,7 @@ const LandingPage = ({ denver }) => {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
 
       <div className="container-fluid about-us">
@@ -98,8 +98,8 @@ const LandingPage = ({ denver }) => {
             <div className="card-block">
               <h4 className="name-title">Danah Olivetree</h4>
               <p className="card-text">Twitter Data Manipulation <br></br> D3 Data Visualization <br></br> OAuth Implementation</p>
-              <p className="card-text"><strong>???@gmail.com</strong></p>
-              <a href="" className="btn">????</a>
+              <p className="card-text"><a className="email-link" href="mailto:danah.olivetree@gmail.com"><strong>danah.olivetree@gmail.com</strong></a></p>
+              <a href="https://github.com/danaholivetree" className="btn">GIT HUB</a>
             </div>
           </div>
           <div className="card about-us-card">
@@ -107,8 +107,8 @@ const LandingPage = ({ denver }) => {
             <div className="card-block">
               <h4 className="name-title">Adam Neef</h4>
               <p className="card-text">OAuth Implementation <br></br>Database Structure <br></br>Server Security</p>
-              <p className="card-text"><strong>???@gmail.com</strong></p>
-              <a href="" className="btn">????</a>
+              <p className="card-text"><a className="email-link" href="mailto:aneef@gmail.com"><strong>aneef@gmail.com</strong></a></p>
+              <a href="https://github.com/adneef" className="btn">GIT HUB</a>
             </div>
           </div>
         </div>
