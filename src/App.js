@@ -99,9 +99,9 @@ class App extends Component {
   }
 
   // stop animating population map
-  componentWillUnmount() {
-    clearInterval(this.intervalId);
-  }
+  // componentWillUnmount() {
+  //   clearInterval(this.intervalId);
+  // }
 
   // animate colorado population density map
   changeMapImage = () => {
@@ -109,9 +109,9 @@ class App extends Component {
     if (this.state.mapImageIndex < 3) {
       this.setState({ mapImageIndex: nextImageIndex })
     }
-    else {
-      clearInterval(this.intervalId)
-    }
+    // else {
+    //   clearInterval(this.intervalId)
+    // }
   }
 
   // allow drop down on dashboard to display selected data
