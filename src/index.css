@@ -319,3 +319,13 @@ body, html {
 .arc path :hover {
   background-color: green;
 }
+
+.node:hover circle {
+  fill: purple;
+}
+
+.node text {
+  font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-anchor: middle;
+  pointer-events: none;
+}
