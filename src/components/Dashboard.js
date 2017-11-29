@@ -13,7 +13,8 @@ const Dashboard = ({
   searchResults,
   lastSearch,
   denver,
-  topTrendTweets }) => {
+  topTrendTweets,
+  deleteSearch }) => {
 
   return (
     <div>
@@ -22,6 +23,7 @@ const Dashboard = ({
         searchTerms={searchTerms}
         saveSearch={saveSearch}
         updateDataDisplay={updateDataDisplay}
+        deleteSearch={deleteSearch}
       />
       <Data
         dataDisplay={dataDisplay}

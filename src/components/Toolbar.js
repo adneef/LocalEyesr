@@ -6,7 +6,8 @@ const Toolbar = ({
   submitSearch,
   searchTerms,
   saveSearch,
-  updateDataDisplay }) => {
+  updateDataDisplay,
+  deleteSearch }) => {
 
   return(
     <div className="container-fluid toolbar">
@@ -20,6 +21,7 @@ const Toolbar = ({
           searchTerms={ searchTerms }
           submitSearch={ submitSearch }
           updateDataDisplay={ updateDataDisplay }
+          deleteSearch={ deleteSearch }
       />
       </div>
     </div>

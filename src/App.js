@@ -98,6 +98,28 @@ class App extends Component {
     })
   }
 
+  deleteSearch = async (term) => {
+    const postObj = {
+      user_id: this.state.user,
+      term: term
+    }
+    const res = await fetch(`${API}/users`, {
+      method: 'DELETE',
+      body: JSON.stringify(postObj),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+    })
+    const json = await res.json()
+    console.log()
+    this.setState({
+      terms: [
+        ...json.map(term => term.term)
+      ]
+    })
+  }
+
   // stop animating population map
   componentWillUnmount() {
     clearInterval(this.intervalId);
@@ -147,6 +169,7 @@ class App extends Component {
               lastSearch={this.state.lastSearch}
               denver={this.state.denver}
               topTrendTweets={this.state.topTrendTweets}
+              deleteSearch={this.deleteSearch}
             /> :
             <LandingPage denver={this.state.denver} />
         }
