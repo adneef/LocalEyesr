@@ -16,7 +16,6 @@ const Header = ({ loggedIn }) => {
       </div>
     </div>
   )
-
 }
 
 export default Header

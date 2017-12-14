@@ -3,11 +3,10 @@ import * as d3 from "d3";
 
 
 class Data2Chart extends Component {
-  
+
   constructor(props) {
     super(props)
     this.createPieChart = this.createPieChart.bind(this)
-
   }
 
   componentDidMount() {
@@ -23,7 +22,6 @@ class Data2Chart extends Component {
   }
 
   createPieChart() {
-
     var svg = d3.select("svg"),
       width = +svg.attr("width"),
       height = +svg.attr("height"),
@@ -44,7 +42,6 @@ class Data2Chart extends Component {
         .outerRadius(radius - 40)
         .innerRadius(radius - 40);
 
-
     var arc = g.selectAll(".arc")
       .data(pie(this.props.data))
       .enter().append("g")
@@ -53,17 +50,12 @@ class Data2Chart extends Component {
     arc.append("path")
         .attr("d", path)
         .attr("fill", function(d) { return color(d.data.name) })
-        // .on("mouseover", function(d) {
-        //   d3.select(this).dosomething
-        // })
 
     arc.append("text")
         .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")" })
         .attr("dy", "0.35em")
         .text(function(d) { return d.data.name; })
-
   }
-
 
   render() {
     return(
@@ -72,7 +64,6 @@ class Data2Chart extends Component {
       </div>
     )
   }
-
 }
 
 export default Data2Chart

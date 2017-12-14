@@ -30,7 +30,6 @@ const Data = ({
     }
   }
 
-
   return (
     <div className="container">
       <div className="data-container">
@@ -65,7 +64,6 @@ const Data = ({
       </div>
     </div>
   )
-
 }
 
 export default Data

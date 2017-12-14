@@ -24,7 +24,6 @@ const Toolbar = ({
       </div>
     </div>
   )
-
 }
 
 export default Toolbar

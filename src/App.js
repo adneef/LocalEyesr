@@ -38,21 +38,13 @@ class App extends Component {
     const jsonData = await data.json()
     this.setState({ searchResults: jsonData })
 
-    // const res = await fetch(`${API}/twitter/tweets?term=${this.state.trends[0].name}`)
-    // const trendJson = await res.json()
-    // this.setState({ topTrendTweets: trendJson })
-
     // login data base and button functions:
     const url = document.location.href
     const userId = url.substr(url.lastIndexOf('/') + 1).replace('#', '')
-    console.log('url: ', url);
-    console.log('userId: ', userId);
-    console.log('document: ', document.location.href);
     if(document.location.href === `${currentURL}/${userId}#`) {
       console.log('yes');
       const res = await fetch(`${API}/users/${userId}`)
       const searches = await res.json()
-      // console.log('json: ', json);
       const terms = searches.map(search => search.term)
       if(userId) {
         console.log('userId: ', userId);
@@ -60,20 +52,14 @@ class App extends Component {
           loggedIn: true,
           user: userId,
           terms: terms,
-          // trends: json
         })
       } else {
           this.setState({
             loggedIn: false,
-            // trends: json
           })
         }
     }
-    console.log('loggin status: ', this.state.loggedIn);
-
   }
-
-
 
   //function to pull out the search term and save it to the db
   saveSearch = async (search) => {
@@ -98,20 +84,12 @@ class App extends Component {
     })
   }
 
-  // stop animating population map
-  // componentWillUnmount() {
-  //   clearInterval(this.intervalId);
-  // }
-
   // animate colorado population density map
   changeMapImage = () => {
     let nextImageIndex = this.state.mapImageIndex + 1
     if (this.state.mapImageIndex < 3) {
       this.setState({ mapImageIndex: nextImageIndex })
     }
-    // else {
-    //   clearInterval(this.intervalId)
-    // }
   }
 
   // allow drop down on dashboard to display selected data

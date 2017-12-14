@@ -114,10 +114,8 @@ const LandingPage = ({ denver }) => {
         </div>
       </div>
 
-
     </div>
   )
-
 }
 
 export default LandingPage

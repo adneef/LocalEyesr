@@ -30,7 +30,6 @@ class Bubbles extends Component {
 
     var dataset = {children: this.props.data}
     var bubble = d3.pack(dataset)
-      // .sort(null)
       .size([700, 700])
       .padding(1.5);
 
